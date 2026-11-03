@@ -3,30 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2027 東京親子 8天7夜 雪國精華遊 - 夜間模式</title>
+<title>2027 東京親子 8天7夜 雪國精華遊</title>
 <style>
-  body { font-family: 'Helvetica Neue', Arial, 'LiHei Pro', sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 20px; }
-  h1 { text-align: center; color: #f5f5f5; margin-bottom: 20px; font-size: 1.8em; }
-  .container { max-width: 800px; margin: 0 auto; }
+  :root {
+    --bg-color: #f4f7f6;
+    --text-color: #333333;
+    --h1-color: #2c3e50;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0,0,0,0.05);
+    --img-filter: brightness(1);
+    --header-bg: #34495e;
+    --header-text: #ffffff;
+    --header-border: transparent;
+    --text-muted: #333333;
+    --tag-bg: #ecf0f1;
+    --tag-text: #555555;
+    --tag-border: transparent;
+    --btn-bg: #3498db;
+    --btn-hover: #2980b9;
+    --btn-text: #ffffff;
+    --notice-text: #ffffff;
+  }
+  
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --h1-color: #f5f5f5;
+    --card-bg: #1e1e1e;
+    --card-shadow: rgba(0,0,0,0.6);
+    --img-filter: brightness(0.85);
+    --header-bg: #1a202c;
+    --header-text: #e2e8f0;
+    --header-border: #2d3748;
+    --text-muted: #cbd5e0;
+    --tag-bg: #2d3748;
+    --tag-text: #a0aec0;
+    --tag-border: #4a5568;
+    --btn-bg: #2b6cb0;
+    --btn-hover: #3182ce;
+    --notice-text: #ffffff;
+  }
+
+  body { font-family: 'Helvetica Neue', Arial, 'LiHei Pro', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 20px; transition: background-color 0.3s, color 0.3s; }
+  h1 { text-align: center; color: var(--h1-color); margin-bottom: 20px; font-size: 1.8em; transition: color 0.3s; }
+  .container { max-width: 800px; margin: 0 auto; position: relative; }
+  
+  /* 切換按鈕樣式 */
+  .theme-switch-wrapper { display: flex; justify-content: flex-end; margin-bottom: 15px; }
+  .theme-switch { cursor: pointer; padding: 10px 18px; background-color: var(--card-bg); color: var(--text-color); border: 2px solid var(--tag-bg); border-radius: 20px; font-weight: bold; font-size: 0.95em; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px var(--card-shadow); transition: all 0.3s ease; }
+  .theme-switch:hover { background-color: var(--tag-bg); transform: translateY(-2px); }
+  
   .notice-board { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; }
-  .notice-card { flex: 1; min-width: 250px; padding: 15px; border-radius: 12px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-  .notice-pink { background: linear-gradient(135deg, #c23b5b 0%, #ba4073 100%); }
-  .notice-blue { background: linear-gradient(135deg, #2a75b3 0%, #007a8f 100%); }
-  .notice-card h3 { margin-top: 0; font-size: 1.1em; color: #ffffff; }
+  .notice-card { flex: 1; min-width: 250px; padding: 15px; border-radius: 12px; color: var(--notice-text); box-shadow: 0 4px 10px var(--card-shadow); transition: box-shadow 0.3s; }
+  .notice-pink { background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); }
+  body.dark-mode .notice-pink { background: linear-gradient(135deg, #c23b5b 0%, #ba4073 100%); }
+  .notice-blue { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+  body.dark-mode .notice-blue { background: linear-gradient(135deg, #2a75b3 0%, #007a8f 100%); }
+  .notice-card h3 { margin-top: 0; font-size: 1.1em; color: var(--notice-text); }
   .notice-card ul { padding-left: 20px; margin-bottom: 0; line-height: 1.6; }
-  .day-card { background: #1e1e1e; border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 6px 15px rgba(0,0,0,0.6); transition: transform 0.3s; }
+  
+  .day-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 12px var(--card-shadow); transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; }
   .day-card:hover { transform: translateY(-5px); }
-  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 3px solid #333; filter: brightness(0.85); }
-  .card-header { background-color: #1a202c; color: #e2e8f0; padding: 12px 20px; font-weight: bold; font-size: 1.2em; border-bottom: 1px solid #2d3748; }
+  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 3px solid var(--bg-color); filter: var(--img-filter); transition: filter 0.3s; }
+  .card-header { background-color: var(--header-bg); color: var(--header-text); padding: 12px 20px; font-weight: bold; font-size: 1.2em; border-bottom: 1px solid var(--header-border); transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
   .card-body { padding: 20px; }
-  .card-body p { margin: 5px 0 15px; line-height: 1.6; color: #cbd5e0; }
-  .budget-tag { display: inline-block; background-color: #2d3748; padding: 6px 10px; border-radius: 6px; font-size: 0.9em; margin-right: 10px; color: #a0aec0; border: 1px solid #4a5568; }
-  .nav-btn { display: block; text-align: center; background-color: #2b6cb0; color: white; text-decoration: none; padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: bold; transition: 0.2s; }
-  .nav-btn:hover { background-color: #3182ce; }
+  .card-body p { margin: 5px 0 15px; line-height: 1.6; color: var(--text-muted); transition: color 0.3s; }
+  .budget-tag { display: inline-block; background-color: var(--tag-bg); padding: 6px 10px; border-radius: 6px; font-size: 0.9em; margin-right: 10px; color: var(--tag-text); border: 1px solid var(--tag-border); transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+  .nav-btn { display: block; text-align: center; background-color: var(--btn-bg); color: var(--btn-text); text-decoration: none; padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: bold; transition: background-color 0.2s; }
+  .nav-btn:hover { background-color: var(--btn-hover); }
 </style>
 </head>
 <body>
 <div class="container">
+  
+  <!-- 日夜間模式切換按鈕 -->
+  <div class="theme-switch-wrapper">
+    <button class="theme-switch" onclick="toggleTheme()" id="themeBtn">
+      🌙 切換夜間模式
+    </button>
+  </div>
+
   <h1>⛄ 2027 東京親子 8天7夜 行程總覽</h1>
   
   <!-- 行前注意事項 -->
@@ -133,5 +189,22 @@
   </div>
 
 </div>
+
+<script>
+  function toggleTheme() {
+    const body = document.body;
+    const btn = document.getElementById('themeBtn');
+    
+    // 切換 dark-mode class
+    body.classList.toggle('dark-mode');
+    
+    // 根據狀態更改按鈕文字與圖示
+    if (body.classList.contains('dark-mode')) {
+      btn.innerHTML = '☀️ 切換日間模式';
+    } else {
+      btn.innerHTML = '🌙 切換夜間模式';
+    }
+  }
+</script>
 </body>
 </html>
