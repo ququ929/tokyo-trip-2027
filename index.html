@@ -14,7 +14,9 @@
   .notice-blue { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
   .notice-card h3 { margin-top: 0; font-size: 1.1em; }
   .notice-card ul { padding-left: 20px; margin-bottom: 0; line-height: 1.6; }
-  .day-card { background: white; border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .day-card { background: white; border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.3s; }
+  .day-card:hover { transform: translateY(-5px); }
+  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 3px solid #ecf0f1; }
   .card-header { background-color: #34495e; color: white; padding: 12px 20px; font-weight: bold; font-size: 1.2em; }
   .card-body { padding: 20px; }
   .card-body p { margin: 5px 0 15px; line-height: 1.6; }
@@ -51,6 +53,7 @@
   
   <!-- 行程卡片 -->
   <div class="day-card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80" alt="東京市區">
     <div class="card-header">Day 1 (1/18 週一) - 抵達東京 → 入住墨舟莊</div>
     <div class="card-body">
       <p>抵達成田機場後，搭乘京成 Skyliner 前往市區，轉乘至墨田區「墨舟荘」辦理入住。晚上在周邊享用簡單晚餐、適應環境。</p>
@@ -60,6 +63,7 @@
   </div>
 
   <div class="day-card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&q=80" alt="輕井澤滑雪">
     <div class="card-header">Day 2 (1/19 週二) - 雪國童話：輕井澤一日玩雪</div>
     <div class="card-body">
       <p>從上野搭乘北陸新幹線直達輕井澤，前往王子飯店滑雪場 Snow Park 玩雪、坐雪上甜甜圈、堆雪人。下午逛舊輕井澤銀座通，傍晚搭車返回東京。</p>
@@ -69,6 +73,7 @@
   </div>
 
   <div class="day-card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?w=800&q=80" alt="魔法城堡">
     <div class="card-header">Day 3 (1/20 週三) - 魔法世界奇幻日：哈利波特影城</div>
     <div class="card-body">
       <p>全天前往練馬區的「東京華納兄弟哈利波特影城」。帶小孩穿梭在霍格華茲大廳與斜角巷，體驗互動魔法棒，享受沉浸式電影魔法世界。</p>
@@ -78,6 +83,7 @@
   </div>
 
   <div class="day-card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1518359424754-5264b38bfd2a?w=800&q=80" alt="恐龍化石">
     <div class="card-header">Day 4 (1/21 週四) - 自然科學大驚奇：國立科學博物館</div>
     <div class="card-body">
       <p>搭地鐵直達上野，造訪上野恩賜公園內的「國立科學博物館」，看巨型恐龍骨架與世界級礦物寶石。下午逛上野恩賜公園或阿美橫町。</p>
@@ -87,6 +93,7 @@
   </div>
 
   <div class="day-card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=800&q=80" alt="迷你豬與咖啡廳">
     <div class="card-header">Day 5 (1/22 週五) - 池袋萌力全開日：動漫與迷你豬</div>
     <div class="card-body">
       <p>上午造訪 Chiikawa Park，中午在 THE GUEST CAFE 享用主題餐點，下午安排療癒的 mipig cafe 迷你豬互動，傍晚到錦糸公園讓孩子奔跑放電。</p>
@@ -96,6 +103,7 @@
   </div>
 
   <div class="day-card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1555312384-9336159f425b?w=800&q=80" alt="東京車站">
     <div class="card-header">Day 6 (1/23 週六) - 市區休閒日：東京車站與皇居外苑</div>
     <div class="card-body">
       <p>週末避開人潮，前往東京車站地下一番街逛動漫專賣店，挑選紀念品。下午在皇居外苑的寬廣草坪漫步，享受綠地。</p>
@@ -105,6 +113,7 @@
   </div>
 
   <div class="day-card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80" alt="科學與機器人">
     <div class="card-header">Day 7 (1/24 週日) - 台場一日遊：日本科學未來館</div>
     <div class="card-body">
       <p>前往台場參觀「日本科學未來館」，欣賞機器人、宇宙與地球科學等適合兒童互動的豐富展示，享受廣闊的台場商圈。</p>
@@ -114,6 +123,7 @@
   </div>
 
   <div class="day-card">
+    <img class="card-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="機場與旅行">
     <div class="card-header">Day 8 (1/25 週一) - 伴手禮衝刺與賦歸</div>
     <div class="card-body">
       <p>上午在墨舟莊周邊或晴空塔商場做最後的零食與伴手禮採買。帶著美好的回憶前往機場，搭機返回台灣！</p>
