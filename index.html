@@ -74,6 +74,17 @@
   .nav-links { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
   .nav-btn { display: block; text-align: center; background-color: var(--btn-bg); color: var(--btn-text); text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.95em; transition: background-color 0.2s; }
   .nav-btn:hover { background-color: var(--btn-hover); }
+  
+  /* Checkbox 樣式 */
+  .checkbox-label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; user-select: none; transition: all 0.3s; line-height: 1.4; }
+  .checkbox-label input[type="checkbox"] { transform: scale(1.3); cursor: pointer; margin-top: 5px; }
+  .checkbox-label.completed { text-decoration: line-through; opacity: 0.5; }
+  
+  /* 兩行式 Checkbox 文字區塊 */
+  .checkbox-text { display: flex; flex-direction: column; gap: 4px; }
+  .checkbox-text strong { font-size: 1.05em; font-weight: bold; }
+  .checkbox-text span { font-size: 0.85em; color: rgba(255, 255, 255, 0.85); }
+  body.dark-mode .checkbox-text span { color: rgba(255, 255, 255, 0.7); }
 </style>
 </head>
 <body class="dark-mode"> <!-- 預設套用夜間模式 -->
@@ -91,22 +102,77 @@
   <!-- 行前注意事項 -->
   <div class="notice-board">
     <div class="notice-card notice-pink">
-      <h3>🎟️ 必搶預約提醒 (出發前1~2個月)</h3>
-      <ul>
-        <li>哈利波特影城 (開賣即秒殺，必搶)</li>
-        <li>北陸新幹線 (出發前1個月開放劃位)</li>
-        <li>池袋 mipig cafe 迷你豬 (全預約制)</li>
-        <li>THE GUEST CAFE (聯名主題全預約制)</li>
-      </ul>
+      <h3>🎟️ 必搶預約與注意事項</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>✈️ 高雄-東京航班</strong>
+            <span>48小時前線上劃位</span>
+          </div>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>🏰 哈利波特影城</strong>
+            <span>開賣即秒殺，建議提早 2-3 個月預訂</span>
+          </div>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>🚅 北陸新幹線</strong>
+            <span>乘車日 30 天前早上 10:00 開放劃位</span>
+          </div>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>🐷 池袋 mipig cafe 迷你豬</strong>
+            <span>全預約制，建議提早 1 個月預訂</span>
+          </div>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>🍽️ THE GUEST CAFE</strong>
+            <span>全預約制，依官方公告通常提早 1 個月</span>
+          </div>
+        </label>
+      </div>
     </div>
     <div class="notice-card notice-blue">
       <h3>🎒 親子行前必備準備</h3>
-      <ul>
-        <li>小孩保暖衣物、防水手套 (玩雪必備)</li>
-        <li>西瓜卡 (Suica) 或 iPhone 交通卡綁定</li>
-        <li>常備藥物 (退燒、腸胃、OK繃)</li>
-        <li>大容量行動電源、兒童安撫零食</li>
-      </ul>
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>🧤 小孩保暖衣物、防水手套</strong>
+            <span>玩雪必備，注意洋蔥式穿法</span>
+          </div>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>💳 交通卡 (Suica)</strong>
+            <span>實體卡或 iPhone Apple Pay 綁定</span>
+          </div>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>💊 常備藥物</strong>
+            <span>退燒藥、腸胃藥、OK繃</span>
+          </div>
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" onchange="toggleCheck(this)"> 
+          <div class="checkbox-text">
+            <strong>🔋 隨身物品</strong>
+            <span>大容量行動電源、兒童安撫零食</span>
+          </div>
+        </label>
+      </div>
     </div>
   </div>
   
@@ -118,8 +184,14 @@
       <p>抵達成田機場後，搭乘京成 Skyliner 前往市區，轉乘至墨田區「墨舟荘」辦理入住。晚上在周邊享用簡單晚餐、適應環境。</p>
       <div><span class="budget-tag">🚕 交通: 約 NT$1,600</span></div>
       <div class="nav-links">
-        <a href="https://www.google.com/maps/search/?api=1&query=成田機場" target="_blank" class="nav-btn">📍 導航至：成田機場 (抵達)</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=墨舟荘+Hotel+Bokusyusou+Tokyo" target="_blank" class="nav-btn">📍 導航至：墨舟莊 (飯店)</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=成田機場" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：成田機場</a>
+          <a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/tc/" target="_blank" class="nav-btn" style="flex: 1; background-color: #1a438a; border-color: #1a438a; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🚆 Skyliner 官網</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=墨舟荘+Hotel+Bokusyusou+Tokyo" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：墨舟莊飯店</a>
+          <a href="https://visit-sumida.jp/" target="_blank" class="nav-btn" style="flex: 1; background-color: #d35400; border-color: #d35400; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🏘️ 墨田區觀光局</a>
+        </div>
       </div>
     </div>
   </div>
@@ -134,9 +206,18 @@
         <span class="budget-tag">🎟️ 門票: 約 NT$1,300~1,700</span>
       </div>
       <div class="nav-links">
-        <a href="https://www.google.com/maps/search/?api=1&query=上野車站" target="_blank" class="nav-btn">📍 導航至：上野車站 (搭新幹線)</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=輕井澤王子飯店滑雪場" target="_blank" class="nav-btn">📍 導航至：輕井澤 Snow Park</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=舊輕井澤銀座通" target="_blank" class="nav-btn">📍 導航至：舊輕井澤銀座通</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=上野車站" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：上野車站</a>
+          <a href="https://livejapan.com/zh-tw/in-tokyo/in-pref-tokyo/in-ueno/article-a0001007/" target="_blank" class="nav-btn" style="flex: 1; background-color: #27ae60; border-color: #27ae60; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🚉 上野車站指南</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=輕井澤王子飯店滑雪場" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：王子滑雪場</a>
+          <a href="https://www.princehotels.com/zh-hant/ski/karuizawa/" target="_blank" class="nav-btn" style="flex: 1; background-color: #3498db; border-color: #3498db; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">⛄ 滑雪場官方資訊</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=舊輕井澤銀座通" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：舊輕井澤</a>
+          <a href="https://karuizawa-kankokyokai.jp/" target="_blank" class="nav-btn" style="flex: 1; background-color: #c0392b; border-color: #c0392b; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🚲 輕井澤觀光局</a>
+        </div>
       </div>
     </div>
   </div>
@@ -151,7 +232,13 @@
         <span class="budget-tag">🎟️ 門票: 約 NT$4,600~5,000</span>
       </div>
       <div class="nav-links">
-        <a href="https://www.google.com/maps/search/?api=1&query=東京華納兄弟哈利波特影城" target="_blank" class="nav-btn">📍 導航至：哈利波特影城</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=東京華納兄弟哈利波特影城" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：哈利波特影城</a>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+            <a href="https://www.klook.com/zh-TW/activity/84374-warner-bros-studio-tour-tokyo-making-harry-potter/" target="_blank" class="nav-btn" style="background-color: #8e44ad; border-color: #8e44ad; color: #fff; margin: 0;">🏰 Klook 門票預訂</a>
+            <a href="https://www.gotokyo.org/tc/spot/1608/index.html" target="_blank" class="nav-btn" style="background-color: #d35400; border-color: #d35400; color: #fff; margin: 0;">🪄 東京觀光局介紹</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -166,9 +253,18 @@
         <span class="budget-tag">🎟️ 門票: 約 NT$260 (小學生免費)</span>
       </div>
       <div class="nav-links">
-        <a href="https://www.google.com/maps/search/?api=1&query=國立科學博物館+上野" target="_blank" class="nav-btn">📍 導航至：國立科學博物館</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=上野恩賜公園" target="_blank" class="nav-btn">📍 導航至：上野恩賜公園</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=阿美橫町" target="_blank" class="nav-btn">📍 導航至：阿美橫町</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=國立科學博物館+上野" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：科學博物館</a>
+          <a href="https://www.kahaku.go.jp/english/" target="_blank" class="nav-btn" style="flex: 1; background-color: #16a085; border-color: #16a085; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🦕 科博館官方網站</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=上野恩賜公園" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：上野公園</a>
+          <a href="https://www.gotokyo.org/tc/spot/482/index.html" target="_blank" class="nav-btn" style="flex: 1; background-color: #27ae60; border-color: #27ae60; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🌳 上野公園指南</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=阿美橫町" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：阿美橫町</a>
+          <a href="https://livejapan.com/zh-tw/in-tokyo/in-pref-tokyo/in-ueno/article-a0000072/" target="_blank" class="nav-btn" style="flex: 1; background-color: #e74c3c; border-color: #e74c3c; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🍡 阿美橫町逛街地圖</a>
+        </div>
       </div>
     </div>
   </div>
@@ -183,25 +279,54 @@
         <span class="budget-tag">🎟️ 門票: 依實際消費而定</span>
       </div>
       <div class="nav-links">
-        <a href="https://www.google.com/maps/place/Chiikawa+Park/@35.7296986,139.7169399,18.7z/data=!3m1!5s0x60188d6f5006dcc1:0x52468babf1223d06!4m6!3m5!1s0x60188d006f3d976b:0xc471e5c44aa64c5a!8m2!3d35.7298854!4d139.7173041!16s%2Fg%2F11ydqt0hl4?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="nav-btn">📍 導航至：Chiikawa Park</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=THE+GUEST+cafe+and+diner+池袋" target="_blank" class="nav-btn">📍 導航至：THE GUEST CAFE</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=mipig+cafe+池袋" target="_blank" class="nav-btn">📍 導航至：mipig cafe 迷你豬</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=錦糸公園" target="_blank" class="nav-btn">📍 導航至：錦糸公園</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=池袋PARCO+吉伊卡哇" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：Chiikawa</a>
+          <a href="https://chiikawa-info.jp/" target="_blank" class="nav-btn" style="flex: 1; background-color: #f39c12; border-color: #f39c12; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🎀 吉伊卡哇官方資訊</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=mipig+cafe+池袋" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：迷你豬咖啡</a>
+          <a href="https://mipig.cafe/locations/ikebukuro/" target="_blank" class="nav-btn" style="flex: 1; background-color: #ff9ff3; border-color: #ff9ff3; color: #333; margin: 0; display: flex; align-items: center; justify-content: center;">🐷 官網預約資訊</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=錦糸公園" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：錦糸公園</a>
+          <a href="https://missi.com.tw/kinshicho-hotel-food-family/#公園綠地" target="_blank" class="nav-btn" style="flex: 1; background-color: #2ecc71; border-color: #2ecc71; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🛝 溜滑梯遊具介紹</a>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="day-card">
-    <img class="card-img" src="https://lh3.googleusercontent.com/grass-cs/AABkmLcLJCT7tJBHdGqr7vsPZFQLYdqRlRP8vObTeQw77bbFrSv4vYKWOdVnAb_Vqphr3bhReuU4rWmmZwso4FVYL63YmvidNcfMr7QSQQJRYjcqvXqZ1p1hRiu-kC_i9C6VpOypkNODss_th1gw=w408-h306-k-no" alt="東京車站">
-    <div class="card-header">Day 6 (1/23 週六) - 市區休閒日：東京車站與皇居外苑</div>
+    <svg class="card-img" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="100%" fill="#e8f5e9"/>
+      <circle cx="400" cy="200" r="120" fill="#ffffff" opacity="0.6"/>
+      <!-- Red Pikmin -->
+      <path d="M 330 250 C 330 250, 310 180, 350 120" stroke="#e74c3c" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M 350 120 L 360 100 L 340 100 Z" fill="#2ecc71"/>
+      <circle cx="330" cy="230" r="35" fill="#e74c3c"/>
+      <circle cx="315" cy="225" r="8" fill="#fff"/><circle cx="345" cy="225" r="8" fill="#fff"/>
+      <!-- Blue Pikmin -->
+      <path d="M 470 250 C 470 250, 490 190, 450 130" stroke="#3498db" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <circle cx="450" cy="130" r="15" fill="#f1c40f"/>
+      <circle cx="470" cy="240" r="30" fill="#3498db"/>
+      <circle cx="460" cy="235" r="7" fill="#fff"/><circle cx="480" cy="235" r="7" fill="#fff"/>
+      <text x="400" y="360" font-family="Arial" font-size="28" font-weight="bold" fill="#2c3e50" text-anchor="middle">Nintendo TOKYO & 皮克敏朝聖</text>
+    </svg>
+    <div class="card-header">Day 6 (1/23 週六) - 澀谷次文化：任天堂與寶可夢中心</div>
     <div class="card-body">
-      <p>週末避開人潮，前往東京車站地下一番街逛動漫專賣店，挑選紀念品。下午在皇居外苑的寬廣草坪漫步，享受綠地。</p>
+      <p>全家前往澀谷 PARCO 6樓，朝聖 Nintendo TOKYO 購買超可愛的皮克敏周邊，同樓層還有寶可夢中心。下午登上 SHIBUYA SKY 俯瞰東京十字路口。</p>
       <div>
-        <span class="budget-tag">🚕 交通: 約 NT$200~300</span>
+        <span class="budget-tag">🚕 交通: 約 NT$200~300</span> 
+        <span class="budget-tag">🎟️ 門票: SHIBUYA SKY 約 NT$450</span>
       </div>
       <div class="nav-links">
-        <a href="https://www.google.com/maps/search/?api=1&query=東京車站一番街" target="_blank" class="nav-btn">📍 導航至：東京車站一番街</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=皇居外苑" target="_blank" class="nav-btn">📍 導航至：皇居外苑</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=澀谷+PARCO" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：澀谷 PARCO</a>
+          <a href="https://www.nintendo.co.jp/officialstore/" target="_blank" class="nav-btn" style="flex: 1; background-color: #e74c3c; border-color: #e74c3c; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🍄 任天堂官方直營店</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：SHIBUYA SKY</a>
+          <a href="https://www.klook.com/zh-TW/activity/30602-shibuya-sky-tokyo/" target="_blank" class="nav-btn" style="flex: 1; background-color: #3498db; border-color: #3498db; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🏙️ Klook 門票預約</a>
+        </div>
       </div>
     </div>
   </div>
@@ -216,8 +341,14 @@
         <span class="budget-tag">🎟️ 門票: 約 NT$350</span>
       </div>
       <div class="nav-links">
-        <a href="https://www.google.com/maps/search/?api=1&query=日本科學未來館" target="_blank" class="nav-btn">📍 導航至：日本科學未來館</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=台場" target="_blank" class="nav-btn">📍 導航至：台場商圈</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=日本科學未來館" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：科學未來館</a>
+          <a href="https://www.miraikan.jst.go.jp/zh-tw/" target="_blank" class="nav-btn" style="flex: 1; background-color: #2980b9; border-color: #2980b9; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🤖 未來館官方網站</a>
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 5px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=台場" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：台場商圈</a>
+          <a href="https://www.gotokyo.org/tc/destinations/southern-tokyo/odaiba/index.html" target="_blank" class="nav-btn" style="flex: 1; background-color: #8e44ad; border-color: #8e44ad; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🎡 台場官方觀光指南</a>
+        </div>
       </div>
     </div>
   </div>
@@ -231,7 +362,10 @@
         <span class="budget-tag">🚕 交通: 約 NT$1,600</span>
       </div>
       <div class="nav-links">
-        <a href="https://www.google.com/maps/search/?api=1&query=成田機場" target="_blank" class="nav-btn">📍 導航至：成田機場 (賦歸)</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://www.google.com/maps/search/?api=1&query=成田機場" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：成田機場</a>
+          <a href="https://www.narita-airport.jp/ch2/shops/" target="_blank" class="nav-btn" style="flex: 1; background-color: #e67e22; border-color: #e67e22; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🎁 機場伴手禮指南</a>
+        </div>
       </div>
     </div>
   </div>
@@ -251,6 +385,15 @@
       btn.innerHTML = '☀️ 切換日間模式';
     } else {
       btn.innerHTML = '🌙 切換夜間模式';
+    }
+  }
+
+  // Checkbox 切換樣式
+  function toggleCheck(checkbox) {
+    if (checkbox.checked) {
+      checkbox.parentElement.classList.add('completed');
+    } else {
+      checkbox.parentElement.classList.remove('completed');
     }
   }
 </script>
