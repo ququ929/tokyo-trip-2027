@@ -31,7 +31,7 @@
     --h1-color: #f5f5f5;
     --card-bg: #1e1e1e;
     --card-shadow: rgba(0,0,0,0.6);
-    --img-filter: brightness(0.85);
+    --img-filter: brightness(0.9);
     --header-bg: #1a202c;
     --header-text: #e2e8f0;
     --header-border: #2d3748;
@@ -44,47 +44,227 @@
     --notice-text: #ffffff;
   }
 
-  body { font-family: 'Helvetica Neue', Arial, 'LiHei Pro', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 20px; transition: background-color 0.3s, color 0.3s; }
-  h1 { text-align: center; color: var(--h1-color); margin-bottom: 20px; font-size: 1.8em; transition: color 0.3s; }
-  .container { max-width: 800px; margin: 0 auto; position: relative; }
+  body { 
+    font-family: 'Helvetica Neue', Arial, 'LiHei Pro', 'PingFang TC', 'Microsoft JhengHei', sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    margin: 0; 
+    padding: 20px; 
+    transition: background-color 0.3s, color 0.3s; 
+  }
+  
+  h1 { 
+    text-align: center; 
+    color: var(--h1-color); 
+    margin-bottom: 20px; 
+    font-size: 1.8em; 
+    transition: color 0.3s; 
+  }
+  
+  .container { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    position: relative; 
+  }
   
   /* 切換按鈕樣式 */
-  .theme-switch-wrapper { display: flex; justify-content: flex-end; margin-bottom: 15px; }
-  .theme-switch { cursor: pointer; padding: 10px 18px; background-color: var(--card-bg); color: var(--text-color); border: 2px solid var(--tag-bg); border-radius: 20px; font-weight: bold; font-size: 0.95em; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px var(--card-shadow); transition: all 0.3s ease; }
-  .theme-switch:hover { background-color: var(--tag-bg); transform: translateY(-2px); }
+  .theme-switch-wrapper { 
+    display: flex; 
+    justify-content: flex-end; 
+    margin-bottom: 15px; 
+  }
   
-  .notice-board { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; }
-  .notice-card { flex: 1; min-width: 250px; padding: 15px; border-radius: 12px; color: var(--notice-text); box-shadow: 0 4px 10px var(--card-shadow); transition: box-shadow 0.3s; }
+  .theme-switch { 
+    cursor: pointer; 
+    padding: 10px 18px; 
+    background-color: var(--card-bg); 
+    color: var(--text-color); 
+    border: 2px solid var(--tag-bg); 
+    border-radius: 20px; 
+    font-weight: bold; 
+    font-size: 0.95em; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    box-shadow: 0 4px 6px var(--card-shadow); 
+    transition: all 0.3s ease; 
+  }
+  
+  .theme-switch:hover { 
+    background-color: var(--tag-bg); 
+    transform: translateY(-2px); 
+  }
+  
+  /* 行前注意事項區塊 */
+  .notice-board { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    margin-bottom: 30px; 
+  }
+  
+  .notice-card { 
+    flex: 1; 
+    min-width: 280px; 
+    padding: 18px; 
+    border-radius: 12px; 
+    color: var(--notice-text); 
+    box-shadow: 0 4px 10px var(--card-shadow); 
+    transition: box-shadow 0.3s; 
+  }
+  
   .notice-pink { background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); }
   body.dark-mode .notice-pink { background: linear-gradient(135deg, #c23b5b 0%, #ba4073 100%); }
+  
   .notice-blue { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
   body.dark-mode .notice-blue { background: linear-gradient(135deg, #2a75b3 0%, #007a8f 100%); }
-  .notice-card h3 { margin-top: 0; font-size: 1.1em; color: var(--notice-text); }
-  .notice-card ul { padding-left: 20px; margin-bottom: 0; line-height: 1.6; }
   
-  .day-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 12px var(--card-shadow); transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; }
-  .day-card:hover { transform: translateY(-5px); }
-  .card-img { width: 100%; height: 200px; object-fit: cover; display: block; border-bottom: 3px solid var(--bg-color); filter: var(--img-filter); transition: filter 0.3s; }
-  .card-header { background-color: var(--header-bg); color: var(--header-text); padding: 12px 20px; font-weight: bold; font-size: 1.2em; border-bottom: 1px solid var(--header-border); transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
-  .card-body { padding: 20px; }
-  .card-body p { margin: 5px 0 15px; line-height: 1.6; color: var(--text-muted); transition: color 0.3s; }
-  .budget-tag { display: inline-block; background-color: var(--tag-bg); padding: 6px 10px; border-radius: 6px; font-size: 0.9em; margin-right: 10px; margin-bottom: 10px; color: var(--tag-text); border: 1px solid var(--tag-border); transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
+  .notice-card h3 { 
+    margin-top: 0; 
+    font-size: 1.15em; 
+    color: var(--notice-text); 
+  }
+  
+  /* 每日行程卡片 */
+  .day-card { 
+    background: var(--card-bg); 
+    border-radius: 12px; 
+    overflow: hidden; 
+    margin-bottom: 24px; 
+    box-shadow: 0 4px 12px var(--card-shadow); 
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; 
+  }
+  
+  .day-card:hover { 
+    transform: translateY(-4px); 
+  }
+  
+  .card-img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+    display: block; 
+    border-bottom: 3px solid var(--bg-color); 
+    filter: var(--img-filter); 
+    transition: filter 0.3s; 
+  }
+  
+  .card-header { 
+    background-color: var(--header-bg); 
+    color: var(--header-text); 
+    padding: 14px 20px; 
+    font-weight: bold; 
+    font-size: 1.15em; 
+    border-bottom: 1px solid var(--header-border); 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+  }
+  
+  .card-body { 
+    padding: 20px; 
+  }
+  
+  .card-body p { 
+    margin: 0 0 15px; 
+    line-height: 1.65; 
+    color: var(--text-muted); 
+    transition: color 0.3s; 
+  }
+  
+  .budget-tag { 
+    display: inline-block; 
+    background-color: var(--tag-bg); 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    font-size: 0.9em; 
+    margin-right: 8px; 
+    margin-bottom: 10px; 
+    color: var(--tag-text); 
+    border: 1px solid var(--tag-border); 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+  }
   
   /* 多個導航按鈕的排版 */
-  .nav-links { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-  .nav-btn { display: block; text-align: center; background-color: var(--btn-bg); color: var(--btn-text); text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 0.95em; transition: background-color 0.2s; }
-  .nav-btn:hover { background-color: var(--btn-hover); }
+  .nav-links { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    margin-top: 12px; 
+  }
+  
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .nav-btn { 
+    flex: 1;
+    min-width: 140px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
+    background-color: var(--btn-bg); 
+    color: var(--btn-text); 
+    text-decoration: none; 
+    padding: 10px 12px; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    font-size: 0.92em; 
+    transition: opacity 0.2s, transform 0.1s; 
+  }
+  
+  .nav-btn:hover { 
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
   
   /* Checkbox 樣式 */
-  .checkbox-label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; user-select: none; transition: all 0.3s; line-height: 1.4; }
-  .checkbox-label input[type="checkbox"] { transform: scale(1.3); cursor: pointer; margin-top: 5px; }
-  .checkbox-label.completed { text-decoration: line-through; opacity: 0.5; }
+  .checkbox-list {
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    margin-top: 15px;
+  }
+
+  .checkbox-label { 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 10px; 
+    cursor: pointer; 
+    user-select: none; 
+    transition: all 0.3s; 
+    line-height: 1.4; 
+  }
+  
+  .checkbox-label input[type="checkbox"] { 
+    transform: scale(1.3); 
+    cursor: pointer; 
+    margin-top: 5px; 
+    accent-color: #ffffff;
+  }
+  
+  .checkbox-label.completed { 
+    text-decoration: line-through; 
+    opacity: 0.55; 
+  }
   
   /* 兩行式 Checkbox 文字區塊 */
-  .checkbox-text { display: flex; flex-direction: column; gap: 4px; }
-  .checkbox-text strong { font-size: 1.05em; font-weight: bold; }
-  .checkbox-text span { font-size: 0.85em; color: rgba(255, 255, 255, 0.85); }
-  body.dark-mode .checkbox-text span { color: rgba(255, 255, 255, 0.7); }
+  .checkbox-text { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 3px; 
+  }
+  
+  .checkbox-text strong { 
+    font-size: 1.02em; 
+    font-weight: bold; 
+  }
+  
+  .checkbox-text span { 
+    font-size: 0.85em; 
+    color: rgba(255, 255, 255, 0.9); 
+  }
 </style>
 </head>
 <body class="dark-mode"> <!-- 預設套用夜間模式 -->
@@ -103,7 +283,7 @@
   <div class="notice-board">
     <div class="notice-card notice-pink">
       <h3>🎟️ 必搶預約與注意事項</h3>
-      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+      <div class="checkbox-list">
         <label class="checkbox-label">
           <input type="checkbox" onchange="toggleCheck(this)"> 
           <div class="checkbox-text">
@@ -141,9 +321,10 @@
         </label>
       </div>
     </div>
+
     <div class="notice-card notice-blue">
       <h3>🎒 親子行前必備準備</h3>
-      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+      <div class="checkbox-list">
         <label class="checkbox-label">
           <input type="checkbox" onchange="toggleCheck(this)"> 
           <div class="checkbox-text">
@@ -176,28 +357,73 @@
     </div>
   </div>
   
-  <!-- 行程卡片 -->
+  <!-- Day 1 -->
   <div class="day-card">
-    <img class="card-img" src="https://lh3.googleusercontent.com/grass-cs/AABkmLcrmAXUr4rlOdCoWLz3pXIRkBpBgjfzKUoRTdC4PqrSOacckcE0mf2SBpkbbRQvljPzDHRjGG4nIe8RlX-oK5pmEoJtnOGCZ6-9e33Z-GcnEXjWAXpxeeaXTi_qN1Uba_pSVEzBQR_00hnX=w408-h544-k-no" alt="東京市區">
+    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky1" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1e3c72"/>
+          <stop offset="100%" stop-color="#2a5298"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="300" fill="url(#sky1)"/>
+      <!-- 東京晴空塔剪影 -->
+      <path d="M 380 260 L 395 100 L 400 40 L 405 100 L 420 260 Z" fill="#ecf0f1" opacity="0.9"/>
+      <rect x="390" y="130" width="20" height="8" rx="2" fill="#3498db"/>
+      <rect x="393" y="90" width="14" height="6" rx="2" fill="#3498db"/>
+      <circle cx="620" cy="70" r="25" fill="#f1c40f" opacity="0.8"/>
+      <!-- 城市建築 -->
+      <rect x="100" y="180" width="60" height="80" fill="#15284b"/>
+      <rect x="180" y="150" width="80" height="110" fill="#10203d"/>
+      <rect x="520" y="160" width="70" height="100" fill="#15284b"/>
+      <rect x="610" y="190" width="90" height="70" fill="#10203d"/>
+      <rect y="260" width="800" height="40" fill="#0b162c"/>
+      <text x="400" y="286" font-family="sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">TOKYO SKYTREE &amp; SUMIDA</text>
+    </svg>
     <div class="card-header">Day 1 (1/18 週一) - 抵達東京 → 入住墨舟莊</div>
     <div class="card-body">
       <p>抵達成田機場後，搭乘京成 Skyliner 前往市區，轉乘至墨田區「墨舟荘」辦理入住。晚上在周邊享用簡單晚餐、適應環境。</p>
       <div><span class="budget-tag">🚕 交通: 約 NT$1,600</span></div>
       <div class="nav-links">
-        <div style="display: flex; gap: 10px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=成田機場" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：成田機場</a>
-          <a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/tc/" target="_blank" class="nav-btn" style="flex: 1; background-color: #1a438a; border-color: #1a438a; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🚆 Skyliner 官網</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%A9%9F%E5%A0%B4" target="_blank" class="nav-btn">📍 導航：成田機場</a>
+          <a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/tc/" target="_blank" class="nav-btn" style="background-color: #1a438a;">🚆 Skyliner 官網</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=墨舟荘+Hotel+Bokusyusou+Tokyo" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：墨舟莊飯店</a>
-          <a href="https://visit-sumida.jp/" target="_blank" class="nav-btn" style="flex: 1; background-color: #d35400; border-color: #d35400; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🏘️ 墨田區觀光局</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E5%A2%A8%E8%88%9F%E8%8D%98+Hotel+Bokusyusou+Tokyo" target="_blank" class="nav-btn">📍 導航：墨舟莊飯店</a>
+          <a href="https://visit-sumida.jp/" target="_blank" class="nav-btn" style="background-color: #d35400;">🏘️ 墨田區觀光局</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Day 2 -->
   <div class="day-card">
-    <img class="card-img" src="https://lh3.googleusercontent.com/grass-cs/AABkmLfkRn8Ph_suVhPwb16vAwYPReOn6zT8m81MkEZEVhl1aOSZoTx6GIsuLH6TvDPoLW9fLEyDC5bsgp7GJXWFOeQKg3Wglah4yM6Cbf2gGmZ0T9tSZ-rTzek5wVZAS3h-tzNYUQINew=w408-h271-k-no" alt="輕井澤滑雪">
+    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="snowSky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#89f7fe"/>
+          <stop offset="100%" stop-color="#66a6ff"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="300" fill="url(#snowSky)"/>
+      <!-- 雪山 -->
+      <polygon points="150,260 320,90 490,260" fill="#ffffff" opacity="0.9"/>
+      <polygon points="350,260 520,110 690,260" fill="#e3f2fd"/>
+      <!-- 雪人 -->
+      <circle cx="230" cy="225" r="28" fill="#ffffff"/>
+      <circle cx="230" cy="185" r="20" fill="#ffffff"/>
+      <circle cx="224" cy="181" r="2.5" fill="#2c3e50"/>
+      <circle cx="236" cy="181" r="2.5" fill="#2c3e50"/>
+      <polygon points="230,185 245,188 230,191" fill="#e67e22"/>
+      <!-- 飄雪 -->
+      <circle cx="120" cy="60" r="4" fill="#fff" opacity="0.8"/>
+      <circle cx="260" cy="40" r="5" fill="#fff" opacity="0.8"/>
+      <circle cx="450" cy="70" r="4" fill="#fff" opacity="0.8"/>
+      <circle cx="630" cy="50" r="6" fill="#fff" opacity="0.8"/>
+      <rect y="250" width="800" height="50" fill="#ffffff"/>
+      <text x="400" y="282" font-family="sans-serif" font-size="18" font-weight="bold" fill="#2980b9" text-anchor="middle" letter-spacing="2">KARUIZAWA SNOW PARK</text>
+    </svg>
     <div class="card-header">Day 2 (1/19 週二) - 雪國童話：輕井澤一日玩雪</div>
     <div class="card-body">
       <p>從上野搭乘北陸新幹線直達輕井澤，前往王子飯店滑雪場 Snow Park 玩雪、坐雪上甜甜圈、堆雪人。下午逛舊輕井澤銀座通，傍晚搭車返回東京。</p>
@@ -206,24 +432,46 @@
         <span class="budget-tag">🎟️ 門票: 約 NT$1,300~1,700</span>
       </div>
       <div class="nav-links">
-        <div style="display: flex; gap: 10px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=上野車站" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：上野車站</a>
-          <a href="https://livejapan.com/zh-tw/in-tokyo/in-pref-tokyo/in-ueno/article-a0001007/" target="_blank" class="nav-btn" style="flex: 1; background-color: #27ae60; border-color: #27ae60; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🚉 上野車站指南</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E8%BB%8A%E7%AB%99" target="_blank" class="nav-btn">📍 導航：上野車站</a>
+          <a href="https://livejapan.com/zh-tw/in-tokyo/in-pref-tokyo/in-ueno/article-a0001007/" target="_blank" class="nav-btn" style="background-color: #27ae60;">🚉 上野車站指南</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=輕井澤王子飯店滑雪場" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：王子滑雪場</a>
-          <a href="https://www.princehotels.com/zh-hant/ski/karuizawa/" target="_blank" class="nav-btn" style="flex: 1; background-color: #3498db; border-color: #3498db; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">⛄ 滑雪場官方資訊</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E8%BC%95%E4%BA%95%E6%BE%A4%E7%8E%8B%E5%AD%90%E9%A3%AF%E5%BA%97%E6%BB%91%E9%9B%AA%E5%A0%B4" target="_blank" class="nav-btn">📍 導航：王子滑雪場</a>
+          <a href="https://www.princehotels.com/zh-hant/ski/karuizawa/" target="_blank" class="nav-btn" style="background-color: #3498db;">⛄ 滑雪場官方資訊</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=舊輕井澤銀座通" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：舊輕井澤</a>
-          <a href="https://karuizawa-kankokyokai.jp/" target="_blank" class="nav-btn" style="flex: 1; background-color: #c0392b; border-color: #c0392b; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🚲 輕井澤觀光局</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E8%88%8A%E8%BC%95%E4%BA%95%E6%BE%A4%E9%8A%80%E5%BA%A7%E9%80%9A" target="_blank" class="nav-btn">📍 導航：舊輕井澤</a>
+          <a href="https://karuizawa-kankokyokai.jp/" target="_blank" class="nav-btn" style="background-color: #c0392b;">🚲 輕井澤觀光局</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Day 3 -->
   <div class="day-card">
-    <img class="card-img" src="https://lh3.googleusercontent.com/grass-cs/AABkmLfXWDpvg0dyxmRXbDqQ_XBuFUjzQYXN8XsxGf8ashK6qd9cY2m6QtjUFf9diDbkpqXQvIIEjXNeotMXXT3gy7ynCS0iQ4FcIhIx-kVEAKcXR13SulQORQBBrcJpM-BbcKglW5WQhA=w408-h306-k-no" alt="魔法城堡">
+    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="magicSky" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#2c1654"/>
+          <stop offset="100%" stop-color="#5b2c6f"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="300" fill="url(#magicSky)"/>
+      <!-- 城堡尖塔 -->
+      <polygon points="320,250 340,120 360,250" fill="#1a0d33"/>
+      <polygon points="380,250 400,80 420,250" fill="#130926"/>
+      <polygon points="440,250 460,130 480,250" fill="#1a0d33"/>
+      <rect x="335" y="180" width="130" height="70" fill="#1a0d33"/>
+      <!-- 魔法星光 -->
+      <circle cx="250" cy="90" r="3" fill="#f1c40f"/>
+      <circle cx="550" cy="80" r="4" fill="#f1c40f"/>
+      <circle cx="480" cy="60" r="2.5" fill="#ffffff"/>
+      <circle cx="300" cy="65" r="3.5" fill="#ffffff"/>
+      <path d="M 500 150 Q 540 110 580 130" stroke="#f1c40f" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
+      <rect y="250" width="800" height="50" fill="#0f071f"/>
+      <text x="400" y="282" font-family="sans-serif" font-size="18" font-weight="bold" fill="#f1c40f" text-anchor="middle" letter-spacing="2">THE MAKING OF HARRY POTTER</text>
+    </svg>
     <div class="card-header">Day 3 (1/20 週三) - 魔法世界奇幻日：哈利波特影城</div>
     <div class="card-body">
       <p>全天前往練馬區的「東京華納兄弟哈利波特影城」。帶小孩穿梭在霍格華茲大廳與斜角巷，體驗互動魔法棒，享受沉浸式電影魔法世界。</p>
@@ -232,19 +480,26 @@
         <span class="budget-tag">🎟️ 門票: 約 NT$4,600~5,000</span>
       </div>
       <div class="nav-links">
-        <div style="display: flex; gap: 10px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=東京華納兄弟哈利波特影城" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：哈利波特影城</a>
-          <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
-            <a href="https://www.klook.com/zh-TW/activity/84374-warner-bros-studio-tour-tokyo-making-harry-potter/" target="_blank" class="nav-btn" style="background-color: #8e44ad; border-color: #8e44ad; color: #fff; margin: 0;">🏰 Klook 門票預訂</a>
-            <a href="https://www.gotokyo.org/tc/spot/1608/index.html" target="_blank" class="nav-btn" style="background-color: #d35400; border-color: #d35400; color: #fff; margin: 0;">🪄 東京觀光局介紹</a>
-          </div>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E8%8F%AF%E7%B4%8D%E5%85%84%E5%BC%9F%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%E5%BD%B1%E5%9F%8E" target="_blank" class="nav-btn">📍 導航：哈利波特影城</a>
+          <a href="https://www.klook.com/zh-TW/activity/84374-warner-bros-studio-tour-tokyo-making-harry-potter/" target="_blank" class="nav-btn" style="background-color: #8e44ad;">🏰 Klook 門票預訂</a>
+          <a href="https://www.gotokyo.org/tc/spot/1608/index.html" target="_blank" class="nav-btn" style="background-color: #d35400;">🪄 東京觀光局介紹</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Day 4 -->
   <div class="day-card">
-    <img class="card-img" src="https://lh3.googleusercontent.com/grass-cs/AABkmLdrRidDBnl0QsDvh-g1QKb8Hy6BMzav0YuX6CSmKHYpKW38_A3NbqpwJqvaF1IpsosMls7-0GMbRXvYrKTGKPTfDYZV4uIFaEwBJ6Q9M_VUjJezlSH0gZIjTcXRSzEe8i8aqOQN6g=w408-h306-k-no" alt="恐龍化石">
+    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="300" fill="#1b4f72"/>
+      <!-- 恐龍剪影 -->
+      <path d="M 280 240 L 290 190 L 260 180 L 250 160 L 285 160 L 320 130 L 370 110 L 420 115 L 440 95 L 475 95 L 480 115 L 450 125 L 435 150 L 410 175 L 425 240 L 405 240 L 390 185 L 350 185 L 335 240 L 315 240 L 325 185 L 305 190 L 295 240 Z" fill="#f39c12" opacity="0.9"/>
+      <!-- 博物館圓頂 -->
+      <path d="M 520 240 L 520 170 Q 570 120 620 170 L 620 240 Z" fill="#2e86c1"/>
+      <rect y="240" width="800" height="60" fill="#154360"/>
+      <text x="400" y="276" font-family="sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">NATIONAL MUSEUM OF NATURE AND SCIENCE</text>
+    </svg>
     <div class="card-header">Day 4 (1/21 週四) - 自然科學大驚奇：國立科學博物館</div>
     <div class="card-body">
       <p>搭地鐵直達上野，造訪上野恩賜公園內的「國立科學博物館」，看巨型恐龍骨架與世界級礦物寶石。下午逛上野恩賜公園或阿美橫町。</p>
@@ -253,24 +508,38 @@
         <span class="budget-tag">🎟️ 門票: 約 NT$260 (小學生免費)</span>
       </div>
       <div class="nav-links">
-        <div style="display: flex; gap: 10px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=國立科學博物館+上野" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：科學博物館</a>
-          <a href="https://www.kahaku.go.jp/english/" target="_blank" class="nav-btn" style="flex: 1; background-color: #16a085; border-color: #16a085; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🦕 科博館官方網站</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E7%A7%91%E5%AD%B8%E5%8D%9A%E7%89%A9%E9%A4%A8+%E4%B8%8A%E9%87%8E" target="_blank" class="nav-btn">📍 導航：科學博物館</a>
+          <a href="https://www.kahaku.go.jp/english/" target="_blank" class="nav-btn" style="background-color: #16a085;">🦕 科博館官方網站</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=上野恩賜公園" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：上野公園</a>
-          <a href="https://www.gotokyo.org/tc/spot/482/index.html" target="_blank" class="nav-btn" style="flex: 1; background-color: #27ae60; border-color: #27ae60; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🌳 上野公園指南</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E6%81%A9%E8%B3%9C%E5%85%AC%E5%9C%92" target="_blank" class="nav-btn">📍 導航：上野公園</a>
+          <a href="https://www.gotokyo.org/tc/spot/482/index.html" target="_blank" class="nav-btn" style="background-color: #27ae60;">🌳 上野公園指南</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=阿美橫町" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：阿美橫町</a>
-          <a href="https://livejapan.com/zh-tw/in-tokyo/in-pref-tokyo/in-ueno/article-a0000072/" target="_blank" class="nav-btn" style="flex: 1; background-color: #e74c3c; border-color: #e74c3c; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🍡 阿美橫町逛街地圖</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E9%98%BF%E7%BE%8E%E6%A9%AB%E7%94%BA" target="_blank" class="nav-btn">📍 導航：阿美橫町</a>
+          <a href="https://livejapan.com/zh-tw/in-tokyo/in-pref-tokyo/in-ueno/article-a0000072/" target="_blank" class="nav-btn" style="background-color: #e74c3c;">🍡 阿美橫町逛街地圖</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Day 5 -->
   <div class="day-card">
-    <img class="card-img" src="https://lh3.googleusercontent.com/grass-cs/AABkmLc1WKFySI8UAtYLtu7T0qzzyCdZ6FeulAKPViKiJuFHRPkBZLZBOTjZ7F587oD3umkibiVbLkftRnw6XQM5HgXwrnq6IVM8rCSh_9VxG-Fb0alOw0rdqkOcmi_FCCOlB54lYvAUREhz4E4t=w408-h517-k-no" alt="迷你豬與咖啡廳">
+    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="300" fill="#ffeaa7"/>
+      <circle cx="400" cy="145" r="95" fill="#ffffff" opacity="0.8"/>
+      <!-- 可愛小豬臉 -->
+      <ellipse cx="400" cy="150" rx="60" ry="50" fill="#ffb8b8"/>
+      <polygon points="350,115 365,85 380,108" fill="#ff9ff3"/>
+      <polygon points="450,115 435,85 420,108" fill="#ff9ff3"/>
+      <circle cx="380" cy="140" r="5" fill="#2d3436"/>
+      <circle cx="420" cy="140" r="5" fill="#2d3436"/>
+      <ellipse cx="400" cy="158" rx="18" ry="12" fill="#ff7675"/>
+      <circle cx="394" cy="158" r="3" fill="#2d3436"/>
+      <circle cx="406" cy="158" r="3" fill="#2d3436"/>
+      <text x="400" y="275" font-family="sans-serif" font-size="18" font-weight="bold" fill="#d63031" text-anchor="middle" letter-spacing="2">IKEBUKURO KAWAII &amp; MIPIG CAFE</text>
+    </svg>
     <div class="card-header">Day 5 (1/22 週五) - 池袋萌力全開日：動漫與迷你豬</div>
     <div class="card-body">
       <p>上午造訪 Chiikawa Park，中午在 THE GUEST CAFE 享用主題餐點，下午安排療癒的 mipig cafe 迷你豬互動，傍晚到錦糸公園讓孩子奔跑放電。</p>
@@ -279,37 +548,40 @@
         <span class="budget-tag">🎟️ 門票: 依實際消費而定</span>
       </div>
       <div class="nav-links">
-        <div style="display: flex; gap: 10px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=池袋PARCO+吉伊卡哇" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：Chiikawa</a>
-          <a href="https://chiikawa-info.jp/" target="_blank" class="nav-btn" style="flex: 1; background-color: #f39c12; border-color: #f39c12; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🎀 吉伊卡哇官方資訊</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E6%B1%A0%E8%A2%8BPARCO+%E5%90%89%E4%BC%8A%E5%8D%A1%E5%93%87" target="_blank" class="nav-btn">📍 導航：Chiikawa</a>
+          <a href="https://chiikawa-info.jp/" target="_blank" class="nav-btn" style="background-color: #f39c12;">🎀 吉伊卡哇官方資訊</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=mipig+cafe+池袋" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：迷你豬咖啡</a>
-          <a href="https://mipig.cafe/locations/ikebukuro/" target="_blank" class="nav-btn" style="flex: 1; background-color: #ff9ff3; border-color: #ff9ff3; color: #333; margin: 0; display: flex; align-items: center; justify-content: center;">🐷 官網預約資訊</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=mipig+cafe+%E6%B1%A0%E8%A2%8B" target="_blank" class="nav-btn">📍 導航：迷你豬咖啡</a>
+          <a href="https://mipig.cafe/locations/ikebukuro/" target="_blank" class="nav-btn" style="background-color: #ff9ff3; color: #2d3436;">🐷 官網預約資訊</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=錦糸公園" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：錦糸公園</a>
-          <a href="https://missi.com.tw/kinshicho-hotel-food-family/#公園綠地" target="_blank" class="nav-btn" style="flex: 1; background-color: #2ecc71; border-color: #2ecc71; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🛝 溜滑梯遊具介紹</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E9%8C%A6%E7%B3%B8%E5%85%AC%E5%9C%92" target="_blank" class="nav-btn">📍 導航：錦糸公園</a>
+          <a href="https://missi.com.tw/kinshicho-hotel-food-family/#%E5%85%AC%E5%9C%92%E7%B6%A0%E5%9C%B0" target="_blank" class="nav-btn" style="background-color: #2ecc71;">🛝 溜滑梯遊具介紹</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Day 6 -->
   <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100%" height="100%" fill="#e8f5e9"/>
-      <circle cx="400" cy="200" r="120" fill="#ffffff" opacity="0.6"/>
+    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="300" fill="#e8f5e9"/>
+      <circle cx="400" cy="145" r="95" fill="#ffffff" opacity="0.75"/>
       <!-- Red Pikmin -->
-      <path d="M 330 250 C 330 250, 310 180, 350 120" stroke="#e74c3c" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M 350 120 L 360 100 L 340 100 Z" fill="#2ecc71"/>
-      <circle cx="330" cy="230" r="35" fill="#e74c3c"/>
-      <circle cx="315" cy="225" r="8" fill="#fff"/><circle cx="345" cy="225" r="8" fill="#fff"/>
+      <path d="M 330 190 C 330 190, 315 135, 345 90" stroke="#e74c3c" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M 345 90 L 355 72 L 335 72 Z" fill="#2ecc71"/>
+      <circle cx="330" cy="175" r="28" fill="#e74c3c"/>
+      <circle cx="318" cy="170" r="6.5" fill="#fff"/><circle cx="342" cy="170" r="6.5" fill="#fff"/>
+      <circle cx="318" cy="170" r="3" fill="#000"/><circle cx="342" cy="170" r="3" fill="#000"/>
       <!-- Blue Pikmin -->
-      <path d="M 470 250 C 470 250, 490 190, 450 130" stroke="#3498db" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <circle cx="450" cy="130" r="15" fill="#f1c40f"/>
-      <circle cx="470" cy="240" r="30" fill="#3498db"/>
-      <circle cx="460" cy="235" r="7" fill="#fff"/><circle cx="480" cy="235" r="7" fill="#fff"/>
-      <text x="400" y="360" font-family="Arial" font-size="28" font-weight="bold" fill="#2c3e50" text-anchor="middle">Nintendo TOKYO & 皮克敏朝聖</text>
+      <path d="M 470 190 C 470 190, 485 140, 455 95" stroke="#3498db" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <circle cx="455" cy="95" r="12" fill="#f1c40f"/>
+      <circle cx="470" cy="180" r="25" fill="#3498db"/>
+      <circle cx="460" cy="175" r="6" fill="#fff"/><circle cx="480" cy="175" r="6" fill="#fff"/>
+      <circle cx="460" cy="175" r="2.5" fill="#000"/><circle cx="480" cy="175" r="2.5" fill="#000"/>
+      <text x="400" y="275" font-family="sans-serif" font-size="18" font-weight="bold" fill="#2c3e50" text-anchor="middle" letter-spacing="1">NINTENDO TOKYO &amp; 皮克敏朝聖</text>
     </svg>
     <div class="card-header">Day 6 (1/23 週六) - 澀谷次文化：任天堂與寶可夢中心</div>
     <div class="card-body">
@@ -319,20 +591,30 @@
         <span class="budget-tag">🎟️ 門票: SHIBUYA SKY 約 NT$450</span>
       </div>
       <div class="nav-links">
-        <div style="display: flex; gap: 10px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=澀谷+PARCO" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：澀谷 PARCO</a>
-          <a href="https://www.nintendo.co.jp/officialstore/" target="_blank" class="nav-btn" style="flex: 1; background-color: #e74c3c; border-color: #e74c3c; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🍄 任天堂官方直營店</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E6%BE%80%E8%B0%B7+PARCO" target="_blank" class="nav-btn">📍 導航：澀谷 PARCO</a>
+          <a href="https://www.nintendo.co.jp/officialstore/" target="_blank" class="nav-btn" style="background-color: #e74c3c;">🍄 任天堂官方直營店</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：SHIBUYA SKY</a>
-          <a href="https://www.klook.com/zh-TW/activity/30602-shibuya-sky-tokyo/" target="_blank" class="nav-btn" style="flex: 1; background-color: #3498db; border-color: #3498db; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🏙️ Klook 門票預約</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY" target="_blank" class="nav-btn">📍 導航：SHIBUYA SKY</a>
+          <a href="https://www.klook.com/zh-TW/activity/30602-shibuya-sky-tokyo/" target="_blank" class="nav-btn" style="background-color: #3498db;">🏙️ Klook 門票預約</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Day 7 -->
   <div class="day-card">
-    <img class="card-img" src="https://lh3.googleusercontent.com/grass-cs/AABkmLddzFyIrftSJbSIssySBGykJnD9Q2WnSpO-S8xlm2h_VCmrPPhbxbaG__oKa8bSJOihwH5U6ilkjEHAvakXsgQYHLDsj8JbV1_-5d8XaUeQLfTx2akWT9EED7gBhNNbZRfIJ0es9w=w408-h271-k-no" alt="科學與機器人">
+    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="300" fill="#0a3d62"/>
+      <!-- 地球儀 Geo-Cosmos -->
+      <circle cx="400" cy="135" r="70" fill="#3c6382"/>
+      <path d="M 360 110 Q 385 95 410 115 T 445 140 Q 420 175 385 165 T 360 110 Z" fill="#78e08f"/>
+      <circle cx="400" cy="135" r="70" fill="none" stroke="#82ccdd" stroke-width="3"/>
+      <!-- 軌道環 -->
+      <ellipse cx="400" cy="135" rx="115" ry="28" fill="none" stroke="#f6b93b" stroke-width="2.5" transform="rotate(-15 400 135)"/>
+      <text x="400" y="272" font-family="sans-serif" font-size="18" font-weight="bold" fill="#82ccdd" text-anchor="middle" letter-spacing="2">MIRAIKAN &amp; ODAIBA</text>
+    </svg>
     <div class="card-header">Day 7 (1/24 週日) - 台場一日遊：日本科學未來館</div>
     <div class="card-body">
       <p>前往台場參觀「日本科學未來館」，欣賞機器人、宇宙與地球科學等適合兒童互動的豐富展示，享受廣闊的台場商圈。</p>
@@ -341,20 +623,37 @@
         <span class="budget-tag">🎟️ 門票: 約 NT$350</span>
       </div>
       <div class="nav-links">
-        <div style="display: flex; gap: 10px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=日本科學未來館" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：科學未來館</a>
-          <a href="https://www.miraikan.jst.go.jp/zh-tw/" target="_blank" class="nav-btn" style="flex: 1; background-color: #2980b9; border-color: #2980b9; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🤖 未來館官方網站</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9C%AC%E7%A7%91%E5%AD%B8%E6%9C%AA%E4%BE%86%E9%A4%A8" target="_blank" class="nav-btn">📍 導航：科學未來館</a>
+          <a href="https://www.miraikan.jst.go.jp/zh-tw/" target="_blank" class="nav-btn" style="background-color: #2980b9;">🤖 未來館官方網站</a>
         </div>
-        <div style="display: flex; gap: 10px; margin-top: 5px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=台場" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：台場商圈</a>
-          <a href="https://www.gotokyo.org/tc/destinations/southern-tokyo/odaiba/index.html" target="_blank" class="nav-btn" style="flex: 1; background-color: #8e44ad; border-color: #8e44ad; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🎡 台場官方觀光指南</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%A0%B4" target="_blank" class="nav-btn">📍 導航：台場商圈</a>
+          <a href="https://www.gotokyo.org/tc/destinations/southern-tokyo/odaiba/index.html" target="_blank" class="nav-btn" style="background-color: #8e44ad;">🎡 台場官方觀光指南</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Day 8 -->
   <div class="day-card">
-    <img class="card-img" src="https://picsum.photos/seed/airport/800/400" alt="機場與旅行">
+    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ff7e5f"/>
+          <stop offset="100%" stop-color="#feb47b"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="300" fill="url(#sunset)"/>
+      <!-- 飛機剪影 -->
+      <path d="M 330 155 L 430 125 L 470 115 Q 485 112 480 125 L 440 142 L 415 180 L 400 183 L 412 148 L 365 162 L 350 180 L 340 182 L 348 164 L 325 168 Z" fill="#ffffff"/>
+      <!-- 雲朵 -->
+      <circle cx="220" cy="210" r="30" fill="#ffffff" opacity="0.6"/>
+      <circle cx="255" cy="215" r="25" fill="#ffffff" opacity="0.6"/>
+      <circle cx="560" cy="195" r="35" fill="#ffffff" opacity="0.6"/>
+      <circle cx="600" cy="200" r="28" fill="#ffffff" opacity="0.6"/>
+      <text x="400" y="272" font-family="sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">NARITA AIRPORT → HOME</text>
+    </svg>
     <div class="card-header">Day 8 (1/25 週一) - 收拾行囊與賦歸</div>
     <div class="card-body">
       <p>收拾行李退房後，帶著美好的回憶直接前往成田機場，搭機返回台灣！</p>
@@ -362,9 +661,9 @@
         <span class="budget-tag">🚕 交通: 約 NT$1,600</span>
       </div>
       <div class="nav-links">
-        <div style="display: flex; gap: 10px;">
-          <a href="https://www.google.com/maps/search/?api=1&query=成田機場" target="_blank" class="nav-btn" style="flex: 1; display: flex; align-items: center; justify-content: center;">📍 導航：成田機場</a>
-          <a href="https://www.narita-airport.jp/ch2/shops/" target="_blank" class="nav-btn" style="flex: 1; background-color: #e67e22; border-color: #e67e22; color: #fff; margin: 0; display: flex; align-items: center; justify-content: center;">🎁 機場伴手禮指南</a>
+        <div class="btn-row">
+          <a href="https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%A9%9F%E5%A0%B4" target="_blank" class="nav-btn">📍 導航：成田機場</a>
+          <a href="https://www.narita-airport.jp/ch2/shops/" target="_blank" class="nav-btn" style="background-color: #e67e22;">🎁 機場伴手禮指南</a>
         </div>
       </div>
     </div>
