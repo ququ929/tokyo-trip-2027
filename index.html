@@ -1,700 +1,1305 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2027 東京親子 8天7夜 雪國精華遊</title>
-<style>
-  :root {
-    --bg-color: #f4f7f6;
-    --text-color: #333333;
-    --h1-color: #2c3e50;
-    --card-bg: #ffffff;
-    --card-shadow: rgba(0,0,0,0.05);
-    --img-filter: brightness(1);
-    --header-bg: #34495e;
-    --header-text: #ffffff;
-    --header-border: transparent;
-    --text-muted: #333333;
-    --tag-bg: #ecf0f1;
-    --tag-text: #555555;
-    --tag-border: transparent;
-    --btn-bg: #3498db;
-    --btn-hover: #2980b9;
-    --btn-text: #ffffff;
-    --notice-text: #ffffff;
-  }
-  
-  body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --h1-color: #f5f5f5;
-    --card-bg: #1e1e1e;
-    --card-shadow: rgba(0,0,0,0.6);
-    --img-filter: brightness(0.9);
-    --header-bg: #1a202c;
-    --header-text: #e2e8f0;
-    --header-border: #2d3748;
-    --text-muted: #cbd5e0;
-    --tag-bg: #2d3748;
-    --tag-text: #a0aec0;
-    --tag-border: #4a5568;
-    --btn-bg: #2b6cb0;
-    --btn-hover: #3182ce;
-    --notice-text: #ffffff;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⛄ 2027 東京親子 8天7夜 雪國精華遊</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  body { 
-    font-family: 'Helvetica Neue', Arial, 'LiHei Pro', 'PingFang TC', 'Microsoft JhengHei', sans-serif; 
-    background-color: var(--bg-color); 
-    color: var(--text-color); 
-    margin: 0; 
-    padding: 20px; 
-    transition: background-color 0.3s, color 0.3s; 
-  }
-  
-  h1 { 
-    text-align: center; 
-    color: var(--h1-color); 
-    margin-bottom: 20px; 
-    font-size: 1.8em; 
-    transition: color 0.3s; 
-  }
-  
-  .container { 
-    max-width: 800px; 
-    margin: 0 auto; 
-    position: relative; 
-  }
-  
-  /* 切換按鈕樣式 */
-  .theme-switch-wrapper { 
-    display: flex; 
-    justify-content: flex-end; 
-    margin-bottom: 15px; 
-  }
-  
-  .theme-switch { 
-    cursor: pointer; 
-    padding: 10px 18px; 
-    background-color: var(--card-bg); 
-    color: var(--text-color); 
-    border: 2px solid var(--tag-bg); 
-    border-radius: 20px; 
-    font-weight: bold; 
-    font-size: 0.95em; 
-    display: flex; 
-    align-items: center; 
-    gap: 8px; 
-    box-shadow: 0 4px 6px var(--card-shadow); 
-    transition: all 0.3s ease; 
-  }
-  
-  .theme-switch:hover { 
-    background-color: var(--tag-bg); 
-    transform: translateY(-2px); 
-  }
-  
-  /* 行前注意事項區塊 */
-  .notice-board { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 15px; 
-    margin-bottom: 30px; 
-  }
-  
-  .notice-card { 
-    flex: 1; 
-    min-width: 280px; 
-    padding: 18px; 
-    border-radius: 12px; 
-    color: var(--notice-text); 
-    box-shadow: 0 4px 10px var(--card-shadow); 
-    transition: box-shadow 0.3s; 
-  }
-  
-  .notice-pink { background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); }
-  body.dark-mode .notice-pink { background: linear-gradient(135deg, #c23b5b 0%, #ba4073 100%); }
-  
-  .notice-blue { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-  body.dark-mode .notice-blue { background: linear-gradient(135deg, #2a75b3 0%, #007a8f 100%); }
-  
-  .notice-card h3 { 
-    margin-top: 0; 
-    font-size: 1.15em; 
-    color: var(--notice-text); 
-  }
-  
-  /* 每日行程卡片 */
-  .day-card { 
-    background: var(--card-bg); 
-    border-radius: 12px; 
-    overflow: hidden; 
-    margin-bottom: 24px; 
-    box-shadow: 0 4px 12px var(--card-shadow); 
-    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; 
-  }
-  
-  .day-card:hover { 
-    transform: translateY(-4px); 
-  }
-  
-  .card-img { 
-    width: 100%; 
-    height: 180px; 
-    object-fit: cover; 
-    display: block; 
-    border-bottom: 3px solid var(--bg-color); 
-    filter: var(--img-filter); 
-    transition: filter 0.3s; 
-  }
-  
-  .card-header { 
-    background-color: var(--header-bg); 
-    color: var(--header-text); 
-    padding: 14px 20px; 
-    font-weight: bold; 
-    font-size: 1.15em; 
-    border-bottom: 1px solid var(--header-border); 
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
-  }
-  
-  .card-body { 
-    padding: 20px; 
-  }
-  
-  .card-body p { 
-    margin: 0 0 15px; 
-    line-height: 1.65; 
-    color: var(--text-muted); 
-    transition: color 0.3s; 
-  }
-  
-  .budget-tag { 
-    display: inline-block; 
-    background-color: var(--tag-bg); 
-    padding: 6px 12px; 
-    border-radius: 6px; 
-    font-size: 0.9em; 
-    margin-right: 8px; 
-    margin-bottom: 10px; 
-    color: var(--tag-text); 
-    border: 1px solid var(--tag-border); 
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
-  }
-  
-  /* 多個導航按鈕的排版 */
-  .nav-links { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    margin-top: 12px; 
-  }
-  
-  .btn-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .nav-btn { 
-    flex: 1;
-    min-width: 140px;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    text-align: center; 
-    background-color: var(--btn-bg); 
-    color: var(--btn-text); 
-    text-decoration: none; 
-    padding: 10px 12px; 
-    border-radius: 8px; 
-    font-weight: bold; 
-    font-size: 0.92em; 
-    transition: opacity 0.2s, transform 0.1s; 
-  }
-  
-  .nav-btn:hover { 
-    opacity: 0.9;
-    transform: translateY(-1px);
-  }
-  
-  /* Checkbox 樣式 */
-  .checkbox-list {
-    display: flex; 
-    flex-direction: column; 
-    gap: 12px; 
-    margin-top: 15px;
-  }
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '"Noto Sans TC"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            ice: {
+              50: '#f0f8ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            amberwarm: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+          },
+        },
+      },
+    };
+  </script>
 
-  .checkbox-label { 
-    display: flex; 
-    align-items: flex-start; 
-    gap: 10px; 
-    cursor: pointer; 
-    user-select: none; 
-    transition: all 0.3s; 
-    line-height: 1.4; 
-  }
-  
-  .checkbox-label input[type="checkbox"] { 
-    transform: scale(1.3); 
-    cursor: pointer; 
-    margin-top: 5px; 
-    accent-color: #ffffff;
-  }
-  
-  .checkbox-label.completed { 
-    text-decoration: line-through; 
-    opacity: 0.55; 
-  }
-  
-  /* 兩行式 Checkbox 文字區塊 */
-  .checkbox-text { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 3px; 
-  }
-  
-  .checkbox-text strong { 
-    font-size: 1.02em; 
-    font-weight: bold; 
-  }
-  
-  .checkbox-text span { 
-    font-size: 0.85em; 
-    color: rgba(255, 255, 255, 0.9); 
-  }
-</style>
+  <style>
+    /* 飄雪畫布固定於背景最上層但不阻擋點擊 */
+    #snow-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 40;
+    }
+
+    /* 分頁內容切換淡入動畫 */
+    @keyframes tabFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .tab-panel-animate {
+      animation: tabFadeIn 0.25s ease-out both;
+    }
+
+    /* 核取項目微互動 */
+    .check-item-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* 行程卡片懸浮效果 */
+    .day-card {
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    @media (hover: hover) {
+      .day-card:hover {
+        transform: translateY(-2px);
+      }
+    }
+  </style>
 </head>
-<body class="dark-mode"> <!-- 預設套用夜間模式 -->
-<div class="container">
-  
-  <!-- 日夜間模式切換按鈕 -->
-  <div class="theme-switch-wrapper">
-    <button class="theme-switch" onclick="toggleTheme()" id="themeBtn">
-      ☀️ 切換日間模式
-    </button>
-  </div>
+<body class="bg-gradient-to-b from-ice-50 via-slate-50 to-ice-50/70 text-slate-800 font-sans antialiased selection:bg-ice-200 selection:text-ice-900 overflow-x-hidden">
 
-  <h1>⛄ 2027 東京親子 8天7夜 行程總覽</h1>
-  
-  <!-- 行前注意事項 -->
-  <div class="notice-board">
-    <div class="notice-card notice-pink">
-      <h3>🎟️ 必搶預約與注意事項</h3>
-      <div class="checkbox-list">
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>✈️ 高雄-東京航班</strong>
-            <span>48小時前線上劃位</span>
+  <!-- 輕柔飄雪背景 Canvas -->
+  <canvas id="snow-canvas" aria-hidden="true"></canvas>
+
+  <!-- Hero 區塊（含右上角飄雪特效開關） -->
+  <header id="top" class="relative pt-6 pb-10 sm:pt-8 sm:pb-12 overflow-hidden">
+    <!-- 冰雪藍漸層背景與光暈 -->
+    <div class="absolute inset-0 bg-gradient-to-br from-ice-900 via-ice-800 to-sky-700"></div>
+    <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-ice-300/20 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-amberwarm-400/20 blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 text-white">
+      <!-- 頂部徽章與飄雪開關 -->
+      <div class="flex items-center justify-between gap-3 mb-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-xs sm:text-sm font-medium text-ice-50">
+          <span>🇯🇵 東京 ＆ 越後湯澤</span>
+          <span class="opacity-50 hidden sm:inline">•</span>
+          <span class="hidden sm:inline">冬季親子自由行</span>
+        </div>
+
+        <!-- 飄雪特效開關按鈕 -->
+        <button
+          id="snow-toggle-btn"
+          type="button"
+          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold border border-white/30 bg-white/15 backdrop-blur-md text-white hover:bg-white/25 active:scale-95 transition cursor-pointer shrink-0"
+          aria-pressed="true"
+          title="開關飄雪背景特效"
+        >
+          <span aria-hidden="true">❄️</span>
+          <span id="snow-toggle-label">飄雪特效：開</span>
+        </button>
+      </div>
+
+      <!-- 主標題與副標題 + 倒數徽章 -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-5">
+        <div class="space-y-2.5">
+          <h1 class="text-2xl sm:text-4xl md:text-[2.6rem] font-extrabold tracking-tight leading-tight">
+            ⛄ 2027 東京親子 8天7夜 <span class="text-amberwarm-200">雪國精華遊</span>
+          </h1>
+          <p class="text-sm sm:text-base font-medium text-ice-100/95">
+            2027/01/18（週一）～ 2027/01/25（週一）｜2 大 2 小（7 歲、8 歲）
+          </p>
+        </div>
+
+        <!-- 即時倒數天數徽章 -->
+        <div class="inline-flex items-center gap-3 self-start md:self-auto rounded-2xl bg-gradient-to-br from-amberwarm-500 to-orange-500 border border-amberwarm-200/50 px-4 py-3 shadow-lg shadow-orange-950/25 shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-xl shrink-0">⏳</div>
+          <div>
+            <div id="countdown-label" class="text-[11px] sm:text-xs font-semibold text-amberwarm-50">距離 2027/01/18 出發還有</div>
+            <div class="flex items-baseline gap-2">
+              <span id="countdown-value" class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">-- 天</span>
+              <span id="countdown-badge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-white/20 text-white">期待倒數</span>
+            </div>
           </div>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>🏰 哈利波特影城</strong>
-            <span>開賣即秒殺，建議提早 2-3 個月預訂</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主要分頁導覽列（Sticky 置頂於 Hero 下方，共 3 個獨立分頁） -->
+  <nav
+    id="main-tabs-nav"
+    aria-label="主要功能分頁"
+    class="sticky top-0 z-30 bg-white/92 backdrop-blur-md border-b border-ice-100 shadow-sm"
+  >
+    <div class="max-w-5xl mx-auto px-3 sm:px-6 py-2.5">
+      <div class="grid grid-cols-3 gap-1.5 sm:gap-3" role="tablist">
+        <!-- 分頁 1：每日行程總覽（預設 active） -->
+        <button
+          id="main-tab-itinerary"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-itinerary"
+          onclick="switchMainTab('itinerary', true)"
+          class="main-tab-btn flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2.5 sm:py-3 rounded-2xl text-xs sm:text-sm md:text-base font-extrabold transition active:scale-[0.98] cursor-pointer bg-ice-700 text-white shadow-md shadow-ice-700/20"
+        >
+          <span aria-hidden="true">🗓️</span>
+          <span class="truncate">每日行程總覽</span>
+        </button>
+
+        <!-- 分頁 2：行前核對清單（含即時完成數徽章） -->
+        <button
+          id="main-tab-checklist"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-checklist"
+          onclick="switchMainTab('checklist', true)"
+          class="main-tab-btn flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2.5 sm:py-3 rounded-2xl text-xs sm:text-sm md:text-base font-extrabold transition active:scale-[0.98] cursor-pointer bg-slate-100 text-slate-600 hover:bg-ice-50 hover:text-ice-800"
+        >
+          <span aria-hidden="true">✅</span>
+          <span class="truncate">行前核對清單</span>
+          <span
+            id="nav-checklist-badge"
+            class="inline-flex items-center justify-center px-1.5 sm:px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-amberwarm-100 text-amber-800 shrink-0"
+          >
+            0/12
+          </span>
+        </button>
+
+        <!-- 分頁 3：基本資訊與預算 -->
+        <button
+          id="main-tab-info"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-info"
+          onclick="switchMainTab('info', true)"
+          class="main-tab-btn flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2.5 sm:py-3 rounded-2xl text-xs sm:text-sm md:text-base font-extrabold transition active:scale-[0.98] cursor-pointer bg-slate-100 text-slate-600 hover:bg-ice-50 hover:text-ice-800"
+        >
+          <span aria-hidden="true">📌</span>
+          <span class="truncate">基本資訊與預算</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 分頁內容主容器 -->
+  <main id="tab-content-anchor" class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-20 scroll-mt-16">
+
+    <!-- =================================================================
+         分頁 1：🗓️ 每日行程總覽（預設顯示）
+         ================================================================= -->
+    <section
+      id="panel-itinerary"
+      role="tabpanel"
+      aria-labelledby="main-tab-itinerary"
+      class="tab-panel-animate space-y-5"
+    >
+      <!-- 行程區標題與按鈕圖例 -->
+      <div class="bg-white rounded-3xl shadow-md shadow-ice-900/5 border border-ice-100 p-4 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+              <span>🗓️</span> 每日行程快速導覽
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+              點擊任一天數即時篩選，或選擇「全部」瀏覽完整 8 天行程
+            </p>
           </div>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>🚅 北陸新幹線</strong>
-            <span>乘車日 30 天前早上 10:00 開放劃位</span>
+          <div class="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-500">
+            <span class="inline-flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-ice-600"></span> Google Maps 導航
+            </span>
+            <span class="inline-flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-amberwarm-500"></span> 官網／購票連結
+            </span>
           </div>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>🐷 池袋 mipig cafe 迷你豬</strong>
-            <span>全預約制，建議提早 1 個月預訂</span>
+        </div>
+
+        <!-- 自動換行的 9 顆天數篩選按鈕（flex-wrap 確保 100% 完整顯示不被截斷） -->
+        <div
+          id="day-filter-bar"
+          class="flex flex-wrap items-center gap-2 sm:gap-2.5"
+          role="tablist"
+          aria-label="每日行程快速篩選"
+        >
+          <!-- 由 JS 動態渲染：全部、D1 ~ D8 -->
+        </div>
+      </div>
+
+      <!-- 每日行程卡片列表 -->
+      <div id="itinerary-container" class="space-y-5">
+        <!-- 由 JS 動態渲染完整 8 天行程卡片 -->
+      </div>
+    </section>
+
+    <!-- =================================================================
+         分頁 2：✅ 行前核對清單
+         ================================================================= -->
+    <section
+      id="panel-checklist"
+      role="tabpanel"
+      aria-labelledby="main-tab-checklist"
+      class="hidden tab-panel-animate"
+    >
+      <div class="bg-white rounded-3xl shadow-lg shadow-ice-900/5 border border-ice-100 p-5 sm:p-7 space-y-6">
+        <!-- 標題與重置按鈕 -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-2xl bg-amberwarm-100 text-amberwarm-600 flex items-center justify-center text-xl shrink-0">✅</span>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">互動式行前核對清單</h2>
+              <p class="text-xs sm:text-sm text-slate-500">勾選進度自動儲存於此裝置，隨時打開都能繼續追蹤</p>
+            </div>
           </div>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>🍽️ THE GUEST CAFE</strong>
-            <span>全預約制，依官方公告通常提早 1 個月</span>
+
+          <button
+            id="reset-checklist-btn"
+            type="button"
+            class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 transition active:scale-95 cursor-pointer"
+          >
+            重置全部勾選
+          </button>
+        </div>
+
+        <!-- 總完成進度條 -->
+        <div class="rounded-2xl bg-ice-50/90 border border-ice-100 p-4">
+          <div class="flex items-center justify-between text-sm font-bold mb-2">
+            <span class="text-ice-900">行前準備總進度</span>
+            <span id="overall-progress-text" class="text-ice-700">0 / 12 項（0%）</span>
           </div>
-        </label>
-      </div>
-    </div>
-
-    <div class="notice-card notice-blue">
-      <h3>🎒 親子行前必備準備</h3>
-      <div class="checkbox-list">
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>🧤 小孩保暖衣物、防水手套</strong>
-            <span>玩雪必備，注意洋蔥式穿法</span>
+          <div class="w-full h-3.5 rounded-full bg-white border border-ice-100 overflow-hidden">
+            <div
+              id="overall-progress-bar"
+              class="h-full rounded-full bg-gradient-to-r from-ice-500 to-amberwarm-500 transition-all duration-300"
+              style="width: 0%"
+            ></div>
           </div>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>💳 交通卡 (Suica)</strong>
-            <span>實體卡或 iPhone Apple Pay 綁定</span>
+        </div>
+
+        <!-- 電腦版雙欄並排、手機版上下排列 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- 群組 1：必搶預約清單 -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+              <h3 class="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                <span>🎟️</span> 必搶預約清單
+              </h3>
+              <span id="booking-count-badge" class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-amberwarm-100 text-amber-800">0 / 6</span>
+            </div>
+            <div id="booking-list" class="space-y-2.5"></div>
           </div>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>💊 常備藥物</strong>
-            <span>退燒藥、腸胃藥、OK繃</span>
+
+          <!-- 群組 2：親子行前必備準備 -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+              <h3 class="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                <span>🎒</span> 親子行前必備準備
+              </h3>
+              <span id="packing-count-badge" class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-ice-100 text-ice-800">0 / 6</span>
+            </div>
+            <div id="packing-list" class="space-y-2.5"></div>
           </div>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" onchange="toggleCheck(this)"> 
-          <div class="checkbox-text">
-            <strong>🔋 隨身物品</strong>
-            <span>大容量行動電源、兒童安撫零食</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         分頁 3：📌 基本資訊與預算
+         ================================================================= -->
+    <section
+      id="panel-info"
+      role="tabpanel"
+      aria-labelledby="main-tab-info"
+      class="hidden tab-panel-animate space-y-6"
+    >
+      <!-- 區塊 A：📌 基本資訊與交通原則 -->
+      <div class="bg-white rounded-3xl shadow-lg shadow-ice-900/5 border border-ice-100 p-5 sm:p-7 space-y-5">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-2xl bg-ice-100 text-ice-700 flex items-center justify-center text-xl shrink-0">📌</span>
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">基本資訊與交通原則</h2>
+            <p class="text-xs sm:text-sm text-slate-500">旅程日期、家庭成員、墨舟荘基地與省錢票券策略</p>
           </div>
-        </label>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Day 1 -->
-  <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="sky1" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#1e3c72"/>
-          <stop offset="100%" stop-color="#2a5298"/>
-        </linearGradient>
-      </defs>
-      <rect width="800" height="300" fill="url(#sky1)"/>
-      <!-- 東京晴空塔剪影 -->
-      <path d="M 380 260 L 395 100 L 400 40 L 405 100 L 420 260 Z" fill="#ecf0f1" opacity="0.9"/>
-      <rect x="390" y="130" width="20" height="8" rx="2" fill="#3498db"/>
-      <rect x="393" y="90" width="14" height="6" rx="2" fill="#3498db"/>
-      <circle cx="620" cy="70" r="25" fill="#f1c40f" opacity="0.8"/>
-      <!-- 城市建築 -->
-      <rect x="100" y="180" width="60" height="80" fill="#15284b"/>
-      <rect x="180" y="150" width="80" height="110" fill="#10203d"/>
-      <rect x="520" y="160" width="70" height="100" fill="#15284b"/>
-      <rect x="610" y="190" width="90" height="70" fill="#10203d"/>
-      <rect y="260" width="800" height="40" fill="#0b162c"/>
-      <text x="400" y="286" font-family="sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">TOKYO SKYTREE &amp; SUMIDA</text>
-    </svg>
-    <div class="card-header">Day 1 (1/18 週一) - 抵達東京 → 入住墨舟莊</div>
-    <div class="card-body">
-      <p>抵達成田機場後，搭乘京成 Skyliner 前往市區，轉乘至墨田區「墨舟荘」辦理入住。晚上在周邊享用簡單晚餐、適應環境。</p>
-      <div><span class="budget-tag">🚕 交通: 約 NT$1,600</span></div>
-      <div class="nav-links">
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%A9%9F%E5%A0%B4" target="_blank" class="nav-btn">📍 導航：成田機場</a>
-          <a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/tc/" target="_blank" class="nav-btn" style="background-color: #1a438a;">🚆 Skyliner 官網</a>
         </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E5%A2%A8%E8%88%9F%E8%8D%98+Hotel+Bokusyusou+Tokyo" target="_blank" class="nav-btn">📍 導航：墨舟莊飯店</a>
-          <a href="https://visit-sumida.jp/" target="_blank" class="nav-btn" style="background-color: #d35400;">🏘️ 墨田區觀光局</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Day 2 -->
-  <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="snowSky" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#89f7fe"/>
-          <stop offset="100%" stop-color="#66a6ff"/>
-        </linearGradient>
-      </defs>
-      <rect width="800" height="300" fill="url(#snowSky)"/>
-      <!-- 雪山 -->
-      <polygon points="150,260 320,90 490,260" fill="#ffffff" opacity="0.9"/>
-      <polygon points="350,260 520,110 690,260" fill="#e3f2fd"/>
-      <!-- 雪人 -->
-      <circle cx="230" cy="225" r="28" fill="#ffffff"/>
-      <circle cx="230" cy="185" r="20" fill="#ffffff"/>
-      <circle cx="224" cy="181" r="2.5" fill="#2c3e50"/>
-      <circle cx="236" cy="181" r="2.5" fill="#2c3e50"/>
-      <polygon points="230,185 245,188 230,191" fill="#e67e22"/>
-      <!-- 飄雪 -->
-      <circle cx="120" cy="60" r="4" fill="#fff" opacity="0.8"/>
-      <circle cx="260" cy="40" r="5" fill="#fff" opacity="0.8"/>
-      <circle cx="450" cy="70" r="4" fill="#fff" opacity="0.8"/>
-      <circle cx="630" cy="50" r="6" fill="#fff" opacity="0.8"/>
-      <rect y="250" width="800" height="50" fill="#ffffff"/>
-      <text x="400" y="282" font-family="sans-serif" font-size="18" font-weight="bold" fill="#2980b9" text-anchor="middle" letter-spacing="2">KARUIZAWA SNOW PARK</text>
-    </svg>
-    <div class="card-header">Day 2 (1/19 週二) - 雪國童話：輕井澤一日玩雪</div>
-    <div class="card-body">
-      <p>從上野搭乘北陸新幹線直達輕井澤，前往王子飯店滑雪場 Snow Park 玩雪、坐雪上甜甜圈、堆雪人。下午逛舊輕井澤銀座通，傍晚搭車返回東京。</p>
-      <div>
-        <span class="budget-tag">🚕 交通: 約 NT$3,600~4,200</span> 
-        <span class="budget-tag">🎟️ 門票: 約 NT$1,300~1,700</span>
-      </div>
-      <div class="nav-links">
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E8%BB%8A%E7%AB%99" target="_blank" class="nav-btn">📍 導航：上野車站</a>
-          <a href="https://livejapan.com/zh-tw/in-tokyo/in-pref-tokyo/in-ueno/article-a0001007/" target="_blank" class="nav-btn" style="background-color: #27ae60;">🚉 上野車站指南</a>
+        <!-- 日期與成員摘要列 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div class="rounded-2xl bg-ice-50/70 border border-ice-100 p-4 flex items-start gap-3">
+            <span class="text-2xl shrink-0" aria-hidden="true">📅</span>
+            <div>
+              <div class="text-xs font-bold text-ice-700">旅行日期</div>
+              <div class="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">2027/01/18（週一）～ 2027/01/25（週一）</div>
+              <div class="text-xs text-slate-600 mt-0.5">共 8 天 7 夜</div>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-ice-50/70 border border-ice-100 p-4 flex items-start gap-3">
+            <span class="text-2xl shrink-0" aria-hidden="true">👨‍👩‍👧‍👦</span>
+            <div>
+              <div class="text-xs font-bold text-ice-700">旅行成員</div>
+              <div class="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">2 大 2 小（7 歲、8 歲）</div>
+              <div class="text-xs text-amber-700 font-semibold mt-0.5">適用小學生／兒童票價</div>
+            </div>
+          </div>
         </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E8%BC%95%E4%BA%95%E6%BE%A4%E7%8E%8B%E5%AD%90%E9%A3%AF%E5%BA%97%E6%BB%91%E9%9B%AA%E5%A0%B4" target="_blank" class="nav-btn">📍 導航：王子滑雪場</a>
-          <a href="https://www.princehotels.com/zh-hant/ski/karuizawa/" target="_blank" class="nav-btn" style="background-color: #3498db;">⛄ 滑雪場官方資訊</a>
-        </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E8%88%8A%E8%BC%95%E4%BA%95%E6%BE%A4%E9%8A%80%E5%BA%A7%E9%80%9A" target="_blank" class="nav-btn">📍 導航：舊輕井澤</a>
-          <a href="https://karuizawa-kankokyokai.jp/" target="_blank" class="nav-btn" style="background-color: #c0392b;">🚲 輕井澤觀光局</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Day 3 -->
-  <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="magicSky" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#2c1654"/>
-          <stop offset="100%" stop-color="#5b2c6f"/>
-        </linearGradient>
-      </defs>
-      <rect width="800" height="300" fill="url(#magicSky)"/>
-      <!-- 城堡尖塔 -->
-      <polygon points="320,250 340,120 360,250" fill="#1a0d33"/>
-      <polygon points="380,250 400,80 420,250" fill="#130926"/>
-      <polygon points="440,250 460,130 480,250" fill="#1a0d33"/>
-      <rect x="335" y="180" width="130" height="70" fill="#1a0d33"/>
-      <!-- 魔法星光 -->
-      <circle cx="250" cy="90" r="3" fill="#f1c40f"/>
-      <circle cx="550" cy="80" r="4" fill="#f1c40f"/>
-      <circle cx="480" cy="60" r="2.5" fill="#ffffff"/>
-      <circle cx="300" cy="65" r="3.5" fill="#ffffff"/>
-      <path d="M 500 150 Q 540 110 580 130" stroke="#f1c40f" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
-      <rect y="250" width="800" height="50" fill="#0f071f"/>
-      <text x="400" y="282" font-family="sans-serif" font-size="18" font-weight="bold" fill="#f1c40f" text-anchor="middle" letter-spacing="2">THE MAKING OF HARRY POTTER</text>
-    </svg>
-    <div class="card-header">Day 3 (1/20 週三) - 魔法世界奇幻日：哈利波特影城</div>
-    <div class="card-body">
-      <p>全天前往練馬區的「東京華納兄弟哈利波特影城」。帶小孩穿梭在霍格華茲大廳與斜角巷，體驗互動魔法棒，享受沉浸式電影魔法世界。</p>
-      <div>
-        <span class="budget-tag">🚕 交通: 約 NT$250~350</span> 
-        <span class="budget-tag">🎟️ 門票: 約 NT$4,600~5,000</span>
-      </div>
-      <div class="nav-links">
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E8%8F%AF%E7%B4%8D%E5%85%84%E5%BC%9F%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%E5%BD%B1%E5%9F%8E" target="_blank" class="nav-btn">📍 導航：哈利波特影城</a>
-          <a href="https://www.klook.com/zh-TW/activity/84374-warner-bros-studio-tour-tokyo-making-harry-potter/" target="_blank" class="nav-btn" style="background-color: #8e44ad;">🏰 Klook 門票預訂</a>
-          <a href="https://www.gotokyo.org/tc/spot/1608/index.html" target="_blank" class="nav-btn" style="background-color: #d35400;">🪄 東京觀光局介紹</a>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <!-- 住宿基地卡片 -->
+          <div class="lg:col-span-7 rounded-2xl bg-slate-50 border border-slate-200/80 p-4 sm:p-5 flex flex-col justify-between gap-4">
+            <div class="space-y-3">
+              <div>
+                <span class="inline-block text-xs font-bold text-ice-700 bg-ice-100 px-2.5 py-0.5 rounded-full mb-1.5">🏨 住宿基地</span>
+                <h3 class="text-lg font-extrabold text-slate-900">墨舟荘（Hotel Bokusyusou Tokyo）</h3>
+              </div>
 
-  <!-- Day 4 -->
-  <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-      <rect width="800" height="300" fill="#1b4f72"/>
-      <!-- 恐龍剪影 -->
-      <path d="M 280 240 L 290 190 L 260 180 L 250 160 L 285 160 L 320 130 L 370 110 L 420 115 L 440 95 L 475 95 L 480 115 L 450 125 L 435 150 L 410 175 L 425 240 L 405 240 L 390 185 L 350 185 L 335 240 L 315 240 L 325 185 L 305 190 L 295 240 Z" fill="#f39c12" opacity="0.9"/>
-      <!-- 博物館圓頂 -->
-      <path d="M 520 240 L 520 170 Q 570 120 620 170 L 620 240 Z" fill="#2e86c1"/>
-      <rect y="240" width="800" height="60" fill="#154360"/>
-      <text x="400" y="276" font-family="sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">NATIONAL MUSEUM OF NATURE AND SCIENCE</text>
-    </svg>
-    <div class="card-header">Day 4 (1/21 週四) - 自然科學大驚奇：國立科學博物館</div>
-    <div class="card-body">
-      <p>搭地鐵直達上野，造訪上野恩賜公園內的「國立科學博物館」，看巨型恐龍骨架與世界級礦物寶石。下午逛上野恩賜公園或阿美橫町。</p>
-      <div>
-        <span class="budget-tag">🚕 交通: 約 NT$200~300</span> 
-        <span class="budget-tag">🎟️ 門票: 約 NT$260 (小學生免費)</span>
-      </div>
-      <div class="nav-links">
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E7%A7%91%E5%AD%B8%E5%8D%9A%E7%89%A9%E9%A4%A8+%E4%B8%8A%E9%87%8E" target="_blank" class="nav-btn">📍 導航：科學博物館</a>
-          <a href="https://www.kahaku.go.jp/english/" target="_blank" class="nav-btn" style="background-color: #16a085;">🦕 科博館官方網站</a>
-        </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E6%81%A9%E8%B3%9C%E5%85%AC%E5%9C%92" target="_blank" class="nav-btn">📍 導航：上野公園</a>
-          <a href="https://www.gotokyo.org/tc/spot/482/index.html" target="_blank" class="nav-btn" style="background-color: #27ae60;">🌳 上野公園指南</a>
-        </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E9%98%BF%E7%BE%8E%E6%A9%AB%E7%94%BA" target="_blank" class="nav-btn">📍 導航：阿美橫町</a>
-          <a href="https://livejapan.com/zh-tw/in-tokyo/in-pref-tokyo/in-ueno/article-a0000072/" target="_blank" class="nav-btn" style="background-color: #e74c3c;">🍡 阿美橫町逛街地圖</a>
-        </div>
-      </div>
-    </div>
-  </div>
+              <div class="flex flex-wrap items-center gap-2 text-sm text-slate-700 font-medium">
+                <span>📍 東京都墨田區東向島 2-29-14</span>
+                <button
+                  type="button"
+                  onclick="copyText('東京都墨田區東向島 2-29-14', '已複製墨舟荘地址！')"
+                  class="inline-flex items-center gap-1 px-3 py-1 rounded-xl bg-white border border-slate-300 text-xs font-bold text-slate-700 hover:text-ice-700 hover:border-ice-400 active:scale-95 transition cursor-pointer"
+                >
+                  📋 一鍵複製地址
+                </button>
+              </div>
 
-  <!-- Day 5 -->
-  <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-      <rect width="800" height="300" fill="#ffeaa7"/>
-      <circle cx="400" cy="145" r="95" fill="#ffffff" opacity="0.8"/>
-      <!-- 可愛小豬臉 -->
-      <ellipse cx="400" cy="150" rx="60" ry="50" fill="#ffb8b8"/>
-      <polygon points="350,115 365,85 380,108" fill="#ff9ff3"/>
-      <polygon points="450,115 435,85 420,108" fill="#ff9ff3"/>
-      <circle cx="380" cy="140" r="5" fill="#2d3436"/>
-      <circle cx="420" cy="140" r="5" fill="#2d3436"/>
-      <ellipse cx="400" cy="158" rx="18" ry="12" fill="#ff7675"/>
-      <circle cx="394" cy="158" r="3" fill="#2d3436"/>
-      <circle cx="406" cy="158" r="3" fill="#2d3436"/>
-      <text x="400" y="275" font-family="sans-serif" font-size="18" font-weight="bold" fill="#d63031" text-anchor="middle" letter-spacing="2">IKEBUKURO KAWAII &amp; MIPIG CAFE</text>
-    </svg>
-    <div class="card-header">Day 5 (1/22 週五) - 池袋萌力全開日：動漫與迷你豬</div>
-    <div class="card-body">
-      <p>上午造訪 Chiikawa Park，中午在 THE GUEST CAFE 享用主題餐點，下午安排療癒的 mipig cafe 迷你豬互動，傍晚到錦糸公園讓孩子奔跑放電。</p>
-      <div>
-        <span class="budget-tag">🚕 交通: 約 NT$200~300</span> 
-        <span class="budget-tag">🎟️ 門票: 依實際消費而定</span>
+              <!-- 最近車站 -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                <div class="rounded-xl bg-white border border-slate-200/80 p-3">
+                  <div class="text-xs font-bold text-ice-700">東武晴空塔線</div>
+                  <div class="text-sm font-extrabold text-slate-800 mt-0.5">「曳舟站」步行約 3 分鐘</div>
+                </div>
+                <div class="rounded-xl bg-white border border-slate-200/80 p-3">
+                  <div class="text-xs font-bold text-ice-700">京成押上線</div>
+                  <div class="text-sm font-extrabold text-slate-800 mt-0.5">「京成曳舟站」步行約 7 分鐘</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=%E5%A2%A8%E8%88%9F%E8%8D%98+Hotel+Bokusyusou+Tokyo"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded-xl bg-ice-600 hover:bg-ice-700 text-white text-sm font-bold shadow-sm transition active:scale-95"
+              >
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Google Maps 導航至墨舟荘
+              </a>
+            </div>
+          </div>
+
+          <!-- 交通票券策略醒目提示框 -->
+          <div class="lg:col-span-5 rounded-2xl bg-gradient-to-br from-amberwarm-50 to-orange-50/80 border-2 border-amberwarm-300 p-4 sm:p-5 flex flex-col justify-between gap-3">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amberwarm-500 text-white text-xs font-extrabold mb-3 shadow-xs">
+                <span>💡</span> 交通票券策略
+              </div>
+              <h3 class="text-lg font-extrabold text-amber-950 mb-2">
+                不買 JR 東京廣域周遊券
+              </h3>
+              <p class="text-sm text-amber-950/90 leading-relaxed">
+                單買<strong class="text-orange-700 font-extrabold">「上野 ↔ 越後湯澤」上越新幹線來回票</strong>，其餘市區與機場交通全家刷 <strong class="text-emerald-700 font-extrabold">Suica（西瓜卡）</strong>最省錢彈性。
+              </p>
+            </div>
+            <div class="rounded-xl bg-white/85 border border-amberwarm-200 px-3.5 py-2.5 text-xs text-amber-900 leading-relaxed">
+              <strong>小學生優惠提醒：</strong>7 歲與 8 歲皆適用兒童票價，建議辦理「兒童記名 Suica」，市區交通直接享半價。
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="nav-links">
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E6%B1%A0%E8%A2%8BPARCO+%E5%90%89%E4%BC%8A%E5%8D%A1%E5%93%87" target="_blank" class="nav-btn">📍 導航：Chiikawa</a>
-          <a href="https://chiikawa-info.jp/" target="_blank" class="nav-btn" style="background-color: #f39c12;">🎀 吉伊卡哇官方資訊</a>
+
+      <!-- 區塊 B：💰 行程交通與核心門票預算總覽（純新台幣 NT$） -->
+      <div class="bg-white rounded-3xl shadow-lg shadow-ice-900/5 border border-ice-100 p-5 sm:p-7 space-y-5">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl shrink-0">💰</span>
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">行程交通與核心門票預算總覽</h2>
+            <p class="text-xs sm:text-sm text-slate-500">2 大 2 小（7 歲、8 歲）全程以新台幣（NT$）預估</p>
+          </div>
         </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=mipig+cafe+%E6%B1%A0%E8%A2%8B" target="_blank" class="nav-btn">📍 導航：迷你豬咖啡</a>
-          <a href="https://mipig.cafe/locations/ikebukuro/" target="_blank" class="nav-btn" style="background-color: #ff9ff3; color: #2d3436;">🐷 官網預約資訊</a>
+
+        <!-- 預算明細卡片列表 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- 1. 機場來回交通 -->
+          <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 flex flex-col justify-between gap-2">
+            <div class="flex items-start justify-between gap-3">
+              <div class="text-sm font-extrabold text-slate-800">✈️ 機場來回交通（Day 1 + Day 8）</div>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 shrink-0">去回程</span>
+            </div>
+            <div class="text-xl font-extrabold text-ice-800">NT$1,560 ~ NT$3,200</div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              依選擇京成 Access 特急（單程約 NT$780）或 Skyliner 轉乘（單程約 NT$1,600）而定。
+            </p>
+          </div>
+
+          <!-- 2. 市區電車交通 -->
+          <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 flex flex-col justify-between gap-2">
+            <div class="flex items-start justify-between gap-3">
+              <div class="text-sm font-extrabold text-slate-800">🚃 市區電車交通（Day 2, 3, 5, 6, 7 刷 Suica）</div>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 shrink-0">Suica</span>
+            </div>
+            <div class="text-xl font-extrabold text-ice-800">約 NT$1,800</div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Day 2（NT$250）＋ Day 3（NT$300）＋ Day 5（NT$450）＋ Day 6（NT$400）＋ Day 7（NT$400）。
+            </p>
+          </div>
+
+          <!-- 3. Day 4 湯澤中里玩雪一日遊 -->
+          <div class="rounded-2xl bg-ice-50/80 border border-ice-200 p-4 flex flex-col justify-between gap-2">
+            <div class="flex items-start justify-between gap-3">
+              <div class="text-sm font-extrabold text-ice-950">⛄ Day 4 湯澤中里玩雪一日遊</div>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-ice-600 text-white shrink-0">雪國亮點</span>
+            </div>
+            <div class="text-xl font-extrabold text-ice-900">NT$11,000 ~ NT$15,000</div>
+            <p class="text-xs text-ice-800/90 leading-relaxed">
+              含上越新幹線來回（早鳥 NT$6,100 ～ 原價 NT$8,180）＋ 微笑兒童樂園 4 人門票（NT$1,260）＋ 雪衣褲雪靴租借＆午餐（NT$3,500 ~ NT$5,500）。
+            </p>
+          </div>
+
+          <!-- 4. 核心景點門票 -->
+          <div class="rounded-2xl bg-amberwarm-50/80 border border-amberwarm-200 p-4 flex flex-col justify-between gap-2">
+            <div class="flex items-start justify-between gap-3">
+              <div class="text-sm font-extrabold text-amber-950">🎟️ 核心景點門票（4 大景點）</div>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-amberwarm-500 text-white shrink-0">門票合計</span>
+            </div>
+            <div class="text-xl font-extrabold text-amber-950">NT$6,810 ~ NT$7,410</div>
+            <p class="text-xs text-amber-900/90 leading-relaxed">
+              科博館 NT$260（小學生免費）＋ SHIBUYA SKY NT$1,600~1,800 ＋ 哈利波特影城 NT$4,600~5,000 ＋ 日本科學未來館 NT$350。
+            </p>
+          </div>
         </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E9%8C%A6%E7%B3%B8%E5%85%AC%E5%9C%92" target="_blank" class="nav-btn">📍 導航：錦糸公園</a>
-          <a href="https://missi.com.tw/kinshicho-hotel-food-family/#%E5%85%AC%E5%9C%92%E7%B6%A0%E5%9C%B0" target="_blank" class="nav-btn" style="background-color: #2ecc71;">🛝 溜滑梯遊具介紹</a>
+
+        <!-- 合計預估總額亮眼卡片 -->
+        <div class="rounded-2xl bg-gradient-to-r from-ice-900 via-ice-800 to-sky-700 text-white p-5 sm:p-6 shadow-lg shadow-ice-900/15 space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="text-xs sm:text-sm font-bold text-ice-200">合計預估總額（2 大 2 小）</div>
+              <div class="text-2xl sm:text-3xl font-extrabold tracking-tight text-amberwarm-200 mt-0.5">
+                約 NT$21,170 ~ NT$27,410
+              </div>
+            </div>
+            <div class="inline-flex items-center gap-1.5 self-start sm:self-center px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-bold text-ice-50">
+              <span>💵</span> 純新台幣（NT$）計算
+            </div>
+          </div>
+          <p class="text-xs text-ice-100/90 leading-relaxed pt-2 border-t border-white/15">
+            ※ 備註說明：以上為 2 大 2 小交通與核心門票／玩雪預估，不含機票、住宿、一般餐飲（含 THE GUEST CAFE、mipig cafe）與購物伴手禮。
+          </p>
         </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="relative z-10 border-t border-ice-100 bg-white/85 py-8 text-center text-xs sm:text-sm text-slate-500 px-4">
+    <p class="font-bold text-slate-700 mb-1">⛄ 2027 東京親子 8天7夜 雪國精華遊</p>
+    <p>祝全家旅途平安順心，在東京與越後湯澤留下最溫暖的冬季回憶！</p>
+  </footer>
+
+  <!-- 自訂確認重置彈窗（不使用 alert / confirm） -->
+  <div
+    id="reset-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/45 backdrop-blur-xs p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="reset-modal-title"
+  >
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-100">
+      <h3 id="reset-modal-title" class="text-lg font-extrabold text-slate-900 mb-2">確定要重置全部勾選嗎？</h3>
+      <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+        這將會清除「必搶預約清單」與「親子行前必備準備」目前所有的完成紀錄。
+      </p>
+      <div class="flex items-center justify-end gap-2.5">
+        <button
+          id="cancel-reset-btn"
+          type="button"
+          class="px-4 py-2 rounded-xl text-sm font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 transition cursor-pointer"
+        >
+          取消
+        </button>
+        <button
+          id="confirm-reset-btn"
+          type="button"
+          class="px-4 py-2 rounded-xl text-sm font-bold text-white bg-rose-600 hover:bg-rose-700 transition cursor-pointer"
+        >
+          確定重置
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Day 6 -->
-  <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-      <rect width="800" height="300" fill="#e8f5e9"/>
-      <circle cx="400" cy="145" r="95" fill="#ffffff" opacity="0.75"/>
-      <!-- Red Pikmin -->
-      <path d="M 330 190 C 330 190, 315 135, 345 90" stroke="#e74c3c" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M 345 90 L 355 72 L 335 72 Z" fill="#2ecc71"/>
-      <circle cx="330" cy="175" r="28" fill="#e74c3c"/>
-      <circle cx="318" cy="170" r="6.5" fill="#fff"/><circle cx="342" cy="170" r="6.5" fill="#fff"/>
-      <circle cx="318" cy="170" r="3" fill="#000"/><circle cx="342" cy="170" r="3" fill="#000"/>
-      <!-- Blue Pikmin -->
-      <path d="M 470 190 C 470 190, 485 140, 455 95" stroke="#3498db" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <circle cx="455" cy="95" r="12" fill="#f1c40f"/>
-      <circle cx="470" cy="180" r="25" fill="#3498db"/>
-      <circle cx="460" cy="175" r="6" fill="#fff"/><circle cx="480" cy="175" r="6" fill="#fff"/>
-      <circle cx="460" cy="175" r="2.5" fill="#000"/><circle cx="480" cy="175" r="2.5" fill="#000"/>
-      <text x="400" y="275" font-family="sans-serif" font-size="18" font-weight="bold" fill="#2c3e50" text-anchor="middle" letter-spacing="1">NINTENDO TOKYO &amp; 皮克敏朝聖</text>
-    </svg>
-    <div class="card-header">Day 6 (1/23 週六) - 澀谷次文化：任天堂與寶可夢中心</div>
-    <div class="card-body">
-      <p>全家前往澀谷 PARCO 6樓，朝聖 Nintendo TOKYO 購買超可愛的皮克敏周邊，同樓層還有寶可夢中心。下午登上 SHIBUYA SKY 俯瞰東京十字路口。</p>
-      <div>
-        <span class="budget-tag">🚕 交通: 約 NT$200~300</span> 
-        <span class="budget-tag">🎟️ 門票: SHIBUYA SKY 約 NT$450</span>
-      </div>
-      <div class="nav-links">
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E6%BE%80%E8%B0%B7+PARCO" target="_blank" class="nav-btn">📍 導航：澀谷 PARCO</a>
-          <a href="https://www.nintendo.co.jp/officialstore/" target="_blank" class="nav-btn" style="background-color: #e74c3c;">🍄 任天堂官方直營店</a>
-        </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY" target="_blank" class="nav-btn">📍 導航：SHIBUYA SKY</a>
-          <a href="https://www.klook.com/zh-TW/activity/30602-shibuya-sky-tokyo/" target="_blank" class="nav-btn" style="background-color: #3498db;">🏙️ Klook 門票預約</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- 輕量提示 Toast -->
+  <div
+    id="toast"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-full bg-slate-900/92 text-white text-sm font-bold shadow-xl opacity-0 pointer-events-none transition-all duration-300 translate-y-2"
+    role="status"
+    aria-live="polite"
+  ></div>
 
-  <!-- Day 7 -->
-  <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-      <rect width="800" height="300" fill="#0a3d62"/>
-      <!-- 地球儀 Geo-Cosmos -->
-      <circle cx="400" cy="135" r="70" fill="#3c6382"/>
-      <path d="M 360 110 Q 385 95 410 115 T 445 140 Q 420 175 385 165 T 360 110 Z" fill="#78e08f"/>
-      <circle cx="400" cy="135" r="70" fill="none" stroke="#82ccdd" stroke-width="3"/>
-      <!-- 軌道環 -->
-      <ellipse cx="400" cy="135" rx="115" ry="28" fill="none" stroke="#f6b93b" stroke-width="2.5" transform="rotate(-15 400 135)"/>
-      <text x="400" y="272" font-family="sans-serif" font-size="18" font-weight="bold" fill="#82ccdd" text-anchor="middle" letter-spacing="2">MIRAIKAN &amp; ODAIBA</text>
-    </svg>
-    <div class="card-header">Day 7 (1/24 週日) - 台場一日遊：日本科學未來館</div>
-    <div class="card-body">
-      <p>前往台場參觀「日本科學未來館」，欣賞機器人、宇宙與地球科學等適合兒童互動的豐富展示，享受廣闊的台場商圈。</p>
-      <div>
-        <span class="budget-tag">🚕 交通: 約 NT$300~400</span> 
-        <span class="budget-tag">🎟️ 門票: 約 NT$350</span>
-      </div>
-      <div class="nav-links">
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9C%AC%E7%A7%91%E5%AD%B8%E6%9C%AA%E4%BE%86%E9%A4%A8" target="_blank" class="nav-btn">📍 導航：科學未來館</a>
-          <a href="https://www.miraikan.jst.go.jp/zh-tw/" target="_blank" class="nav-btn" style="background-color: #2980b9;">🤖 未來館官方網站</a>
-        </div>
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%A0%B4" target="_blank" class="nav-btn">📍 導航：台場商圈</a>
-          <a href="https://www.gotokyo.org/tc/destinations/southern-tokyo/odaiba/index.html" target="_blank" class="nav-btn" style="background-color: #8e44ad;">🎡 台場官方觀光指南</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <script>
+    /* =====================================================================
+     * 1. 核心資料：行前清單與 8 天完整行程資料
+     * ===================================================================== */
+    const STORAGE_KEY_CHECKLIST = 'tokyo_snow_trip_2027_checklist_v1';
+    const STORAGE_KEY_SNOW = 'tokyo_snow_trip_2027_snow_enabled_v1';
 
-  <!-- Day 8 -->
-  <div class="day-card">
-    <svg class="card-img" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#ff7e5f"/>
-          <stop offset="100%" stop-color="#feb47b"/>
-        </linearGradient>
-      </defs>
-      <rect width="800" height="300" fill="url(#sunset)"/>
-      <!-- 飛機剪影 -->
-      <path d="M 330 155 L 430 125 L 470 115 Q 485 112 480 125 L 440 142 L 415 180 L 400 183 L 412 148 L 365 162 L 350 180 L 340 182 L 348 164 L 325 168 Z" fill="#ffffff"/>
-      <!-- 雲朵 -->
-      <circle cx="220" cy="210" r="30" fill="#ffffff" opacity="0.6"/>
-      <circle cx="255" cy="215" r="25" fill="#ffffff" opacity="0.6"/>
-      <circle cx="560" cy="195" r="35" fill="#ffffff" opacity="0.6"/>
-      <circle cx="600" cy="200" r="28" fill="#ffffff" opacity="0.6"/>
-      <text x="400" y="272" font-family="sans-serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="2">NARITA AIRPORT → HOME</text>
-    </svg>
-    <div class="card-header">Day 8 (1/25 週一) - 收拾行囊與賦歸</div>
-    <div class="card-body">
-      <p>收拾行李退房後，帶著美好的回憶直接前往成田機場，搭機返回台灣！</p>
-      <div>
-        <span class="budget-tag">🚕 交通: 約 NT$1,600</span>
-      </div>
-      <div class="nav-links">
-        <div class="btn-row">
-          <a href="https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%A9%9F%E5%A0%B4" target="_blank" class="nav-btn">📍 導航：成田機場</a>
-          <a href="https://www.narita-airport.jp/ch2/shops/" target="_blank" class="nav-btn" style="background-color: #e67e22;">🎁 機場伴手禮指南</a>
-        </div>
-      </div>
-    </div>
-  </div>
+    const CHECKLIST_DATA = {
+      booking: [
+        { id: 'b1', icon: '✈️', title: '高雄-東京航班', desc: '48 小時前線上劃位' },
+        { id: 'b2', icon: '🏰', title: '哈利波特影城', desc: '開賣即秒殺，建議提早 2–3 個月預訂（排定 1/23 週六）' },
+        { id: 'b3', icon: '🚅', title: '上越新幹線（往越後湯澤）', desc: '乘車日 30 天前 10:00（日本時間）開放劃位，可搶早鳥票' },
+        { id: 'b4', icon: '🏙️', title: 'SHIBUYA SKY', desc: '官網提前 2 週開賣，日落時段秒殺（排定 1/20 週三）' },
+        { id: 'b5', icon: '🐷', title: '池袋 mipig cafe 迷你豬', desc: '全預約制，建議提早 1 個月預訂' },
+        { id: 'b6', icon: '🍽️', title: 'THE GUEST CAFE', desc: '全預約制，依官方公告通常提早 1 個月預訂' },
+      ],
+      packing: [
+        { id: 'p1', icon: '🧤', title: '小孩保暖衣物＆防水手套', desc: '玩雪必備，洋蔥式穿法（手套現場只賣不租，台灣先買）' },
+        { id: 'p2', icon: '🥽', title: '兒童護目鏡（雪鏡）', desc: '天然雪場下雪防雪花吹眼、晴天防雪盲（台灣先買）' },
+        { id: 'p3', icon: '🥾', title: '防水防滑雪靴＆厚襪', desc: '確保腳部保暖不進水（雪靴亦可至雪場現場租借）' },
+        { id: 'p4', icon: '💳', title: '交通卡（Suica）', desc: '實體卡或 iPhone Apple Pay 綁定（小學生可辦兒童記名西瓜卡享半價）' },
+        { id: 'p5', icon: '💊', title: '常備藥物', desc: '退燒藥、腸胃藥、OK繃' },
+        { id: 'p6', icon: '🔋', title: '隨身物品', desc: '大容量行動電源、兒童安撫零食' },
+      ],
+    };
 
-</div>
+    const ITINERARY_DATA = [
+      {
+        day: 1,
+        shortDate: '1/18',
+        date: '1/18 週一',
+        title: '抵達東京 → 入住墨舟莊',
+        emoji: '🛬',
+        isHighlight: false,
+        description:
+          '抵達成田機場後，依當下 Google Maps 即時路線前往墨田區「墨舟荘」辦理入住。晚上在曳舟／晴空塔周邊享用晚餐、適應環境。',
+        subBlocks: [
+          {
+            label: '🚆 機場交通備案（2 大 2 小）',
+            tone: 'ice',
+            items: [
+              '<strong>最快路線（約 53 分）：</strong>搭 Skyliner 至青砥站同月台轉京成押上線至「京成曳舟站」，約 NT$1,600',
+              '<strong>最省錢路線（約 60 分）：</strong>刷西瓜卡搭京成 Access 特急直達「京成曳舟站」（或押上轉東武曳舟），約 NT$780',
+            ],
+          },
+        ],
+        budgetLines: ['交通約 NT$780 ~ NT$1,600'],
+        links: [
+          { type: 'map', label: '導航：成田機場 → 墨舟莊', url: 'https://www.google.com/maps/search/?api=1&query=%E5%A2%A8%E8%88%9F%E8%8D%98+Hotel+Bokusyusou+Tokyo' },
+          { type: 'web', label: 'Skyliner 官網', url: 'https://www.keisei.co.jp/keisei/tetudou/skyliner/tc/' },
+          { type: 'web', label: '墨田區觀光局', url: 'https://visit-sumida.jp/' },
+        ],
+      },
+      {
+        day: 2,
+        shortDate: '1/19',
+        date: '1/19 週二',
+        title: '自然科學大驚奇：上野國立科學博物館 ＋ 新幹線探路',
+        emoji: '🦕',
+        isHighlight: false,
+        description:
+          '搭車前往上野，造訪上野恩賜公園內的「國立科學博物館」，欣賞巨型恐龍骨架與世界級礦物寶石。下午逛上野恩賜公園與阿美橫町，<strong>順便在 JR 上野站實地探路，確認 Day 4 上越新幹線月台動線與取票機位置</strong>。',
+        subBlocks: [],
+        budgetLines: ['交通約 NT$250｜門票約 NT$260（小學生免費）'],
+        links: [
+          { type: 'map', label: '導航：上野車站', url: 'https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E8%BB%8A%E7%AB%99' },
+          { type: 'map', label: '導航：國立科學博物館', url: 'https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E7%A7%91%E5%AD%B8%E5%8D%9A%E7%89%A9%E9%A4%A8+%E4%B8%8A%E9%87%8E' },
+          { type: 'web', label: '科博館官方網站', url: 'https://www.kahaku.go.jp/english/' },
+          { type: 'map', label: '導航：上野恩賜公園', url: 'https://www.google.com/maps/search/?api=1&query=%E4%B8%8A%E9%87%8E%E6%81%A9%E8%B3%9C%E5%85%AC%E5%9C%92' },
+          { type: 'map', label: '導航：阿美橫町', url: 'https://www.google.com/maps/search/?api=1&query=%E9%98%BF%E7%BE%8E%E6%A9%AB%E7%94%BA' },
+        ],
+      },
+      {
+        day: 3,
+        shortDate: '1/20',
+        date: '1/20 週三',
+        title: '澀谷次文化（避開週六人潮）：任天堂與寶可夢中心',
+        emoji: '🎮',
+        isHighlight: false,
+        description:
+          '安排平日週三前往澀谷 PARCO 6 樓，避開週末整理券排隊人潮，朝聖 Nintendo TOKYO 購買皮克敏周邊，同樓層順逛寶可夢中心。下午登上 SHIBUYA SKY 俯瞰東京十字路口與夕陽。',
+        subBlocks: [],
+        budgetLines: ['交通約 NT$300｜SHIBUYA SKY 門票（2 大 2 小）約 NT$1,600 ~ NT$1,800'],
+        links: [
+          { type: 'map', label: '導航：澀谷 PARCO', url: 'https://www.google.com/maps/search/?api=1&query=%E6%BE%80%E8%B0%B7+PARCO' },
+          { type: 'web', label: '任天堂官方直營店', url: 'https://www.nintendo.co.jp/officialstore/' },
+          { type: 'map', label: '導航：SHIBUYA SKY', url: 'https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY' },
+          { type: 'web', label: 'SHIBUYA SKY Klook 門票', url: 'https://www.klook.com/zh-TW/activity/30602-shibuya-sky-tokyo/' },
+        ],
+      },
+      {
+        day: 4,
+        shortDate: '1/21',
+        date: '1/21 週四',
+        title: '天然粉雪童話：湯澤中里滑雪渡假村一日玩雪',
+        emoji: '⛄',
+        isHighlight: true,
+        highlightBadge: '❄️ 雪國重頭戲',
+        description:
+          '從上野搭乘上越新幹線（約 75 分鐘）直達越後湯澤站，轉乘免費接駁巴士（約 12 分鐘）抵達「湯澤中里滑雪渡假村」。',
+        subBlocks: [
+          {
+            label: '🎿 親子玩雪亮點',
+            tone: 'ice',
+            items: [
+              '專攻<strong>「微笑兒童樂園（Smile Kids Park）」</strong>，設有魔毯輸送帶免爬坡，可無限暢玩雪盆、雪胎與戲雪道具；場邊停放退役 <strong>JR 藍色臥鋪列車車廂作為免費暖氣休息室</strong>，換裝、吃午餐與躲風雪都超方便。',
+            ],
+          },
+          {
+            label: '🍙 回程延伸',
+            tone: 'amber',
+            items: [
+              '下午搭接駁車回越後湯澤站，逛站內 <strong>CoCoLo 湯澤商店街</strong>（爆彈飯糰、伴手禮、足湯），再搭新幹線返回東京。',
+            ],
+          },
+        ],
+        budgetLines: [
+          '新幹線來回交通：約 NT$6,100（早鳥）～ NT$8,180（原價）',
+          '微笑兒童樂園門票（4 人）：約 NT$1,260',
+          '雪衣褲＋雪靴租借＆午餐：約 NT$3,500 ~ NT$5,500',
+          '當日總計：約 NT$11,000 ~ NT$15,000（2 大 2 小純玩雪）',
+        ],
+        links: [
+          { type: 'map', label: '導航：湯澤中里滑雪渡假村', url: 'https://www.google.com/maps/search/?api=1&query=%E6%B9%AF%E6%BE%A4%E4%B8%AD%E9%87%8C%E6%BB%91%E9%9B%AA%E6%B8%A1%E5%81%87%E6%9D%91' },
+          { type: 'map', label: '導航：越後湯澤車站', url: 'https://www.google.com/maps/search/?api=1&query=%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%BE%A4%E8%BB%8A%E7%AB%99' },
+          { type: 'web', label: '湯澤中里滑雪渡假村官網', url: 'https://www.yuzawa-nakazato.com/winter/' },
+        ],
+      },
+      {
+        day: 5,
+        shortDate: '1/22',
+        date: '1/22 週五',
+        title: '池袋萌力全開日 ＋ 錦糸町阿卡將本舖',
+        emoji: '🐷',
+        isHighlight: false,
+        description:
+          '上午造訪池袋 Chiikawa Park，中午在 THE GUEST CAFE 享用主題餐點，下午安排療癒的 mipig cafe 迷你豬互動。傍晚天黑變冷時返回墨田區錦糸町，逛室內暖氣充足的「阿卡將本舖（Arcakit 錦糸町 5F）」採買親子用品與享用晚餐。',
+        subBlocks: [],
+        budgetLines: ['交通約 NT$450｜門票與餐飲依實際消費而定'],
+        links: [
+          { type: 'map', label: '導航：池袋 PARCO 吉伊卡哇', url: 'https://www.google.com/maps/search/?api=1&query=%E6%B1%A0%E8%A2%8BPARCO+%E5%90%89%E4%BC%8A%E5%8D%A1%E5%93%87' },
+          { type: 'web', label: '吉伊卡哇官方資訊', url: 'https://chiikawa-info.jp/' },
+          { type: 'map', label: '導航：mipig cafe 池袋', url: 'https://www.google.com/maps/search/?api=1&query=mipig+cafe+%E6%B1%A0%E8%A2%8B' },
+          { type: 'web', label: 'mipig cafe 官網預約', url: 'https://mipig.cafe/locations/ikebukuro/' },
+          { type: 'map', label: '導航：阿卡將本舖 Arcakit 錦糸町', url: 'https://www.google.com/maps/search/?api=1&query=Akachan+Honpo+Arcakit+Kinshicho' },
+        ],
+      },
+      {
+        day: 6,
+        shortDate: '1/23',
+        date: '1/23 週六',
+        title: '魔法世界奇幻日：東京哈利波特影城',
+        emoji: '🪄',
+        isHighlight: false,
+        description:
+          '週六安排全預約制、嚴格總量管制的「東京華納兄弟哈利波特影城」，不受週末市區逛街人潮影響。帶孩子全天穿梭霍格華茲大廳、斜角巷與 9¾ 月台，體驗互動魔法棒與奶油啤酒。',
+        subBlocks: [],
+        budgetLines: ['交通約 NT$400｜門票（2 大 2 小）約 NT$4,600 ~ NT$5,000'],
+        links: [
+          { type: 'map', label: '導航：東京華納兄弟哈利波特影城', url: 'https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E8%8F%AF%E7%B4%8D%E5%85%84%E5%BC%9F%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%E5%BD%B1%E5%9F%8E' },
+          { type: 'web', label: '哈利波特影城 Klook 門票預訂', url: 'https://www.klook.com/zh-TW/activity/84374-warner-bros-studio-tour-tokyo-making-harry-potter/' },
+          { type: 'web', label: '東京觀光局介紹', url: 'https://www.gotokyo.org/tc/spot/1608/index.html' },
+        ],
+      },
+      {
+        day: 7,
+        shortDate: '1/24',
+        date: '1/24 週日',
+        title: '台場一日遊：日本科學未來館',
+        emoji: '🤖',
+        isHighlight: false,
+        description:
+          '前往腹地廣闊的台場，參觀「日本科學未來館」，欣賞機器人、宇宙與地球科學（Geo-Cosmos）等適合兒童互動的豐富展示，下午漫步台場商圈、看自由女神像與鋼彈立像。',
+        subBlocks: [],
+        budgetLines: ['交通約 NT$400｜門票約 NT$350'],
+        links: [
+          { type: 'map', label: '導航：日本科學未來館', url: 'https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9C%AC%E7%A7%91%E5%AD%B8%E6%9C%AA%E4%BE%86%E9%A4%A8' },
+          { type: 'web', label: '日本科學未來館官網', url: 'https://www.miraikan.jst.go.jp/zh-tw/' },
+          { type: 'map', label: '導航：台場商圈', url: 'https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%A0%B4' },
+          { type: 'web', label: '台場官方觀光指南', url: 'https://www.gotokyo.org/tc/destinations/southern-tokyo/odaiba/index.html' },
+        ],
+      },
+      {
+        day: 8,
+        shortDate: '1/25',
+        date: '1/25 週一',
+        title: '收拾行囊與賦歸',
+        emoji: '🛫',
+        isHighlight: false,
+        description:
+          '整理戰利品與退房後，依 Google Maps 即時路線從曳舟／京成曳舟站前往成田機場，最後採買機場伴手禮，搭機返回台灣。',
+        subBlocks: [],
+        budgetLines: ['交通約 NT$780 ~ NT$1,600'],
+        links: [
+          { type: 'map', label: '導航：成田機場', url: 'https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%A9%9F%E5%A0%B4' },
+          { type: 'web', label: '成田機場伴手禮指南', url: 'https://www.narita-airport.jp/ch2/shops/' },
+        ],
+      },
+    ];
 
-<script>
-  function toggleTheme() {
-    const body = document.body;
-    const btn = document.getElementById('themeBtn');
-    
-    // 切換 dark-mode class
-    body.classList.toggle('dark-mode');
-    
-    // 根據狀態更改按鈕文字與圖示
-    if (body.classList.contains('dark-mode')) {
-      btn.innerHTML = '☀️ 切換日間模式';
-    } else {
-      btn.innerHTML = '🌙 切換夜間模式';
+    /* =====================================================================
+     * 2. 三大主分頁切換邏輯（預設顯示 itinerary）
+     * ===================================================================== */
+    let activeMainTab = 'itinerary';
+
+    function switchMainTab(tabKey, shouldScroll = false) {
+      activeMainTab = tabKey;
+      const tabs = ['itinerary', 'checklist', 'info'];
+
+      tabs.forEach((key) => {
+        const btn = document.getElementById(`main-tab-${key}`);
+        const panel = document.getElementById(`panel-${key}`);
+        const isActive = key === tabKey;
+
+        if (isActive) {
+          btn.setAttribute('aria-selected', 'true');
+          btn.className =
+            'main-tab-btn flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2.5 sm:py-3 rounded-2xl text-xs sm:text-sm md:text-base font-extrabold transition active:scale-[0.98] cursor-pointer bg-ice-700 text-white shadow-md shadow-ice-700/20';
+          panel.classList.remove('hidden');
+          // 重新觸發淡入動畫
+          panel.classList.remove('tab-panel-animate');
+          void panel.offsetWidth;
+          panel.classList.add('tab-panel-animate');
+        } else {
+          btn.setAttribute('aria-selected', 'false');
+          btn.className =
+            'main-tab-btn flex items-center justify-center gap-1.5 px-2 sm:px-4 py-2.5 sm:py-3 rounded-2xl text-xs sm:text-sm md:text-base font-extrabold transition active:scale-[0.98] cursor-pointer bg-slate-100 text-slate-600 hover:bg-ice-50 hover:text-ice-800';
+          panel.classList.add('hidden');
+        }
+      });
+
+      // 更新行前清單徽章配色以配合按鈕背景
+      const navBadge = document.getElementById('nav-checklist-badge');
+      if (tabKey === 'checklist') {
+        navBadge.className =
+          'inline-flex items-center justify-center px-1.5 sm:px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-amberwarm-400 text-slate-900 shrink-0';
+      } else {
+        navBadge.className =
+          'inline-flex items-center justify-center px-1.5 sm:px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-amberwarm-100 text-amber-800 shrink-0';
+      }
+
+      if (shouldScroll) {
+        const anchor = document.getElementById('tab-content-anchor');
+        if (anchor) {
+          const navHeight = document.getElementById('main-tabs-nav').offsetHeight || 64;
+          const targetTop = anchor.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+          window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+        }
+      }
     }
-  }
 
-  // Checkbox 切換樣式
-  function toggleCheck(checkbox) {
-    if (checkbox.checked) {
-      checkbox.parentElement.classList.add('completed');
-    } else {
-      checkbox.parentElement.classList.remove('completed');
+    /* =====================================================================
+     * 3. 出發倒數天數計算（2027/01/18）
+     * ===================================================================== */
+    function updateCountdown() {
+      const labelEl = document.getElementById('countdown-label');
+      const valueEl = document.getElementById('countdown-value');
+      const badgeEl = document.getElementById('countdown-badge');
+
+      const now = new Date();
+      const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const tripStart = new Date(2027, 0, 18);
+      const tripEnd = new Date(2027, 0, 25);
+
+      const msPerDay = 1000 * 60 * 60 * 24;
+      const diffToStart = Math.round((tripStart - todayStart) / msPerDay);
+      const diffToEnd = Math.round((tripEnd - todayStart) / msPerDay);
+
+      if (diffToStart > 0) {
+        labelEl.textContent = '距離 2027/01/18 出發還有';
+        valueEl.textContent = `${diffToStart} 天`;
+        badgeEl.textContent = diffToStart <= 30 ? '即將出發' : '期待倒數';
+      } else if (diffToStart <= 0 && diffToEnd >= 0) {
+        const currentDay = Math.abs(diffToStart) + 1;
+        labelEl.textContent = '目前正在東京雪國旅程中！';
+        valueEl.textContent = `Day ${currentDay} / 8`;
+        badgeEl.textContent = '旅途愉快';
+      } else {
+        labelEl.textContent = '2027 東京雪國親子遊';
+        valueEl.textContent = '圓滿達成 ✨';
+        badgeEl.textContent = '美好回憶';
+      }
     }
-  }
-</script>
+
+    /* =====================================================================
+     * 4. 分頁 1：每日行程快速篩選（flex-wrap 全部顯示不截斷）與卡片渲染
+     * ===================================================================== */
+    let activeDayFilter = 'all';
+
+    function renderDayFilterBar() {
+      const bar = document.getElementById('day-filter-bar');
+      const buttons = [
+        { key: 'all', label: '全部', title: '顯示全部 8 天行程', isHighlight: false },
+        ...ITINERARY_DATA.map((d) => ({
+          key: String(d.day),
+          label: `D${d.day}`,
+          title: `Day ${d.day}（${d.date}）${d.isHighlight ? '雪國重頭戲' : d.title}`,
+          isHighlight: d.isHighlight,
+        })),
+      ];
+
+      bar.innerHTML = buttons
+        .map((btn) => {
+          const isActive = activeDayFilter === btn.key;
+          const activeClasses = btn.isHighlight
+            ? 'bg-gradient-to-r from-ice-600 to-sky-500 text-white shadow-md shadow-ice-600/25 border-transparent'
+            : 'bg-ice-700 text-white shadow-md shadow-ice-700/20 border-transparent';
+          const inactiveClasses = btn.isHighlight
+            ? 'bg-ice-50/90 text-ice-800 border-ice-300 hover:bg-ice-100'
+            : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-ice-300 hover:bg-ice-50 hover:text-ice-700';
+
+          // 為 Day 4 加上低調的雪國重點圓點提示，不干擾 D4 文字閱讀
+          const highlightDot = btn.isHighlight
+            ? `<span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full ring-2 ring-white ${
+                isActive ? 'bg-amberwarm-400' : 'bg-sky-400'
+              }" aria-hidden="true"></span>`
+            : '';
+
+          return `
+            <button
+              type="button"
+              role="tab"
+              aria-selected="${isActive}"
+              title="${btn.title}"
+              onclick="selectDayFilter('${btn.key}')"
+              class="relative inline-flex items-center justify-center min-w-[3.25rem] sm:min-w-[3.5rem] px-3.5 py-2 rounded-full text-xs sm:text-sm font-extrabold border transition active:scale-95 cursor-pointer ${
+                isActive ? activeClasses : inactiveClasses
+              }"
+            >
+              <span>${btn.label}</span>
+              ${highlightDot}
+            </button>
+          `;
+        })
+        .join('');
+    }
+
+    function renderItineraryCards() {
+      const container = document.getElementById('itinerary-container');
+      const filteredDays =
+        activeDayFilter === 'all'
+          ? ITINERARY_DATA
+          : ITINERARY_DATA.filter((d) => String(d.day) === activeDayFilter);
+
+      container.innerHTML = filteredDays
+        .map((day) => {
+          const cardBorder = day.isHighlight
+            ? 'border-2 border-ice-400 bg-gradient-to-br from-white via-ice-50/55 to-sky-50/75 shadow-xl shadow-ice-900/10'
+            : 'border border-ice-100 bg-white shadow-md shadow-ice-900/5';
+
+          const dayBadgeStyle = day.isHighlight
+            ? 'bg-gradient-to-r from-ice-600 to-sky-500 text-white shadow-xs'
+            : 'bg-ice-100 text-ice-800';
+
+          const subBlocksHtml = day.subBlocks
+            .map((block) => {
+              const boxClass =
+                block.tone === 'amber'
+                  ? 'bg-amberwarm-50/90 border-amberwarm-200 text-amber-950'
+                  : 'bg-ice-50/85 border-ice-200/90 text-ice-950';
+              const titleClass = block.tone === 'amber' ? 'text-amber-800' : 'text-ice-800';
+
+              return `
+                <div class="rounded-2xl border p-4 ${boxClass}">
+                  <div class="text-xs sm:text-sm font-extrabold mb-2 ${titleClass}">${block.label}</div>
+                  <ul class="space-y-1.5 text-sm leading-relaxed list-disc pl-5">
+                    ${block.items.map((item) => `<li>${item}</li>`).join('')}
+                  </ul>
+                </div>
+              `;
+            })
+            .join('');
+
+          const budgetHtml = `
+            <div class="rounded-2xl bg-emerald-50/75 border border-emerald-200/80 p-3.5 sm:p-4">
+              <div class="flex items-center gap-1.5 text-xs font-extrabold text-emerald-800 mb-1.5">
+                <span>💰</span> 預算預估（新台幣 NT$）
+              </div>
+              <div class="space-y-1 text-sm text-emerald-950 font-medium">
+                ${day.budgetLines
+                  .map((line) => {
+                    const isTotalLine = line.includes('當日總計');
+                    return `<div class="${isTotalLine ? 'pt-1.5 mt-1.5 border-t border-emerald-200 font-extrabold text-emerald-900' : ''}">${line}</div>`;
+                  })
+                  .join('')}
+              </div>
+            </div>
+          `;
+
+          const mapLinks = day.links.filter((l) => l.type === 'map');
+          const webLinks = day.links.filter((l) => l.type === 'web');
+
+          const linksHtml = `
+            <div class="pt-1 flex flex-wrap gap-2">
+              ${mapLinks
+                .map(
+                  (link) => `
+                  <a
+                    href="${link.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-ice-600 hover:bg-ice-700 text-white text-xs sm:text-sm font-bold shadow-xs transition active:scale-95"
+                  >
+                    <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span>${link.label}</span>
+                  </a>
+                `
+                )
+                .join('')}
+              ${webLinks
+                .map(
+                  (link) => `
+                  <a
+                    href="${link.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amberwarm-50 hover:bg-amberwarm-100 text-amber-900 border border-amberwarm-300 text-xs sm:text-sm font-bold transition active:scale-95"
+                  >
+                    <svg class="w-3.5 h-3.5 shrink-0 text-amberwarm-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    <span>${link.label}</span>
+                  </a>
+                `
+                )
+                .join('')}
+            </div>
+          `;
+
+          return `
+            <article class="day-card rounded-3xl p-5 sm:p-6 ${cardBorder}">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs sm:text-sm font-extrabold ${dayBadgeStyle}">
+                    Day ${day.day}（${day.date}）
+                  </span>
+                  ${
+                    day.isHighlight
+                      ? `<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-extrabold bg-amberwarm-500 text-white shadow-xs">${day.highlightBadge}</span>`
+                      : ''
+                  }
+                </div>
+                <span class="text-2xl" aria-hidden="true">${day.emoji}</span>
+              </div>
+
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 leading-snug mb-3">
+                ${day.title}
+              </h3>
+
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
+                ${day.description}
+              </p>
+
+              <div class="space-y-3.5">
+                ${subBlocksHtml}
+                ${budgetHtml}
+                ${linksHtml}
+              </div>
+            </article>
+          `;
+        })
+        .join('');
+    }
+
+    function selectDayFilter(key) {
+      activeDayFilter = key;
+      renderDayFilterBar();
+      renderItineraryCards();
+    }
+
+    /* =====================================================================
+     * 5. 分頁 2：互動式行前核對清單（localStorage 自動儲存）
+     * ===================================================================== */
+    let checklistState = {};
+
+    function loadChecklistState() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY_CHECKLIST);
+        checklistState = saved ? JSON.parse(saved) : {};
+      } catch (err) {
+        checklistState = {};
+      }
+    }
+
+    function saveChecklistState() {
+      try {
+        localStorage.setItem(STORAGE_KEY_CHECKLIST, JSON.stringify(checklistState));
+      } catch (err) {}
+    }
+
+    function renderChecklistGroup(groupKey, containerId) {
+      const container = document.getElementById(containerId);
+      const items = CHECKLIST_DATA[groupKey];
+
+      container.innerHTML = items
+        .map((item) => {
+          const checked = Boolean(checklistState[item.id]);
+          return `
+            <label
+              for="chk-${item.id}"
+              class="check-item-card flex items-start gap-3 p-3.5 rounded-2xl border cursor-pointer select-none ${
+                checked
+                  ? 'bg-emerald-50/75 border-emerald-200/90'
+                  : 'bg-slate-50/75 border-slate-200/80 hover:border-ice-300 hover:bg-ice-50/40'
+              }"
+            >
+              <input
+                id="chk-${item.id}"
+                type="checkbox"
+                ${checked ? 'checked' : ''}
+                onchange="toggleChecklistItem('${item.id}')"
+                class="mt-1 w-5 h-5 rounded-md border-slate-300 text-ice-600 focus:ring-ice-500 shrink-0 cursor-pointer accent-sky-600"
+              />
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5 font-bold text-sm sm:text-base ${
+                  checked ? 'line-through text-slate-400' : 'text-slate-800'
+                }">
+                  <span aria-hidden="true">${item.icon}</span>
+                  <span>${item.title}</span>
+                </div>
+                <p class="text-xs sm:text-sm mt-0.5 leading-relaxed ${
+                  checked ? 'line-through text-slate-400' : 'text-slate-600'
+                }">
+                  ${item.desc}
+                </p>
+              </div>
+            </label>
+          `;
+        })
+        .join('');
+    }
+
+    function updateChecklistProgress() {
+      const bookingTotal = CHECKLIST_DATA.booking.length;
+      const packingTotal = CHECKLIST_DATA.packing.length;
+      const bookingDone = CHECKLIST_DATA.booking.filter((i) => checklistState[i.id]).length;
+      const packingDone = CHECKLIST_DATA.packing.filter((i) => checklistState[i.id]).length;
+
+      const total = bookingTotal + packingTotal;
+      const done = bookingDone + packingDone;
+      const percent = Math.round((done / total) * 100);
+
+      document.getElementById('overall-progress-text').textContent = `${done} / ${total} 項（${percent}%）`;
+      document.getElementById('overall-progress-bar').style.width = `${percent}%`;
+      document.getElementById('booking-count-badge').textContent = `${bookingDone} / ${bookingTotal}`;
+      document.getElementById('packing-count-badge').textContent = `${packingDone} / ${packingTotal}`;
+      document.getElementById('nav-checklist-badge').textContent = `${done}/${total}`;
+    }
+
+    function renderAllChecklists() {
+      renderChecklistGroup('booking', 'booking-list');
+      renderChecklistGroup('packing', 'packing-list');
+      updateChecklistProgress();
+    }
+
+    function toggleChecklistItem(id) {
+      checklistState[id] = !checklistState[id];
+      saveChecklistState();
+      renderAllChecklists();
+    }
+
+    /* =====================================================================
+     * 6. 複製地址與 Toast 提示（使用 execCommand 確保 iFrame 相容）
+     * ===================================================================== */
+    let toastTimer = null;
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2200);
+    }
+
+    function copyText(text, successMsg) {
+      try {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast(successMsg || '已複製到剪貼簿');
+      } catch (err) {
+        showToast('無法自動複製，請手動選取文字');
+      }
+    }
+
+    /* =====================================================================
+     * 7. 重置確認彈窗互動
+     * ===================================================================== */
+    function setupResetModal() {
+      const modal = document.getElementById('reset-modal');
+      const openBtn = document.getElementById('reset-checklist-btn');
+      const cancelBtn = document.getElementById('cancel-reset-btn');
+      const confirmBtn = document.getElementById('confirm-reset-btn');
+
+      const closeModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+
+      openBtn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
+
+      cancelBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      confirmBtn.addEventListener('click', () => {
+        checklistState = {};
+        saveChecklistState();
+        renderAllChecklists();
+        closeModal();
+        showToast('已重置所有行前核對項目');
+      });
+    }
+
+    /* =====================================================================
+     * 8. 可開關的輕柔飄雪背景特效（HTML5 Canvas）
+     * ===================================================================== */
+    let snowEnabled = true;
+    let snowAnimId = null;
+    let snowflakes = [];
+
+    function initSnowEffect() {
+      const canvas = document.getElementById('snow-canvas');
+      const ctx = canvas.getContext('2d');
+      const toggleBtn = document.getElementById('snow-toggle-btn');
+      const toggleLabel = document.getElementById('snow-toggle-label');
+
+      try {
+        const savedSnow = localStorage.getItem(STORAGE_KEY_SNOW);
+        if (savedSnow !== null) {
+          snowEnabled = savedSnow === 'true';
+        } else {
+          snowEnabled = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        }
+      } catch (err) {
+        snowEnabled = true;
+      }
+
+      function createFlakes() {
+        const count = Math.min(46, Math.max(18, Math.floor(window.innerWidth / 30)));
+        snowflakes = Array.from({ length: count }, () => ({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 2.5 + 1.2,
+          speedY: Math.random() * 0.65 + 0.35,
+          driftX: Math.random() * 0.45 - 0.225,
+          phase: Math.random() * Math.PI * 2,
+          opacity: Math.random() * 0.45 + 0.25,
+        }));
+      }
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        createFlakes();
+      }
+
+      function drawSnow() {
+        if (!snowEnabled) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          return;
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (const flake of snowflakes) {
+          flake.y += flake.speedY;
+          flake.phase += 0.012;
+          flake.x += Math.sin(flake.phase) * 0.35 + flake.driftX;
+
+          if (flake.y > canvas.height + 5) {
+            flake.y = -5;
+            flake.x = Math.random() * canvas.width;
+          }
+          if (flake.x > canvas.width + 5) flake.x = -5;
+          if (flake.x < -5) flake.x = canvas.width + 5;
+
+          ctx.beginPath();
+          ctx.arc(flake.x, flake.y, flake.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(186, 230, 253, ${flake.opacity})`;
+          ctx.fill();
+        }
+
+        snowAnimId = requestAnimationFrame(drawSnow);
+      }
+
+      function updateSnowUI() {
+        toggleBtn.setAttribute('aria-pressed', String(snowEnabled));
+        toggleLabel.textContent = snowEnabled ? '飄雪特效：開' : '飄雪特效：關';
+        if (snowEnabled) {
+          toggleBtn.classList.add('bg-white/20', 'border-white/35');
+          toggleBtn.classList.remove('bg-slate-900/30', 'border-white/15', 'opacity-80');
+          cancelAnimationFrame(snowAnimId);
+          drawSnow();
+        } else {
+          toggleBtn.classList.remove('bg-white/20', 'border-white/35');
+          toggleBtn.classList.add('bg-slate-900/30', 'border-white/15', 'opacity-80');
+          cancelAnimationFrame(snowAnimId);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        snowEnabled = !snowEnabled;
+        try {
+          localStorage.setItem(STORAGE_KEY_SNOW, String(snowEnabled));
+        } catch (err) {}
+        updateSnowUI();
+      });
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+      updateSnowUI();
+    }
+
+    /* =====================================================================
+     * 9. 初始化所有模組
+     * ===================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      updateCountdown();
+      loadChecklistState();
+      renderAllChecklists();
+      renderDayFilterBar();
+      renderItineraryCards();
+      switchMainTab('itinerary', false);
+      setupResetModal();
+      initSnowEffect();
+    });
+  </script>
 </body>
 </html>
