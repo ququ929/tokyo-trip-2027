@@ -185,7 +185,7 @@
             id="nav-checklist-badge"
             class="inline-flex items-center justify-center px-1.5 sm:px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-amberwarm-100 text-amber-800 shrink-0"
           >
-            0/12
+            0/14
           </span>
         </button>
 
@@ -289,7 +289,7 @@
         <div class="rounded-2xl bg-ice-50/90 border border-ice-100 p-4">
           <div class="flex items-center justify-between text-sm font-bold mb-2">
             <span class="text-ice-900">行前準備總進度</span>
-            <span id="overall-progress-text" class="text-ice-700">0 / 12 項（0%）</span>
+            <span id="overall-progress-text" class="text-ice-700">0 / 14 項（0%）</span>
           </div>
           <div class="w-full h-3.5 rounded-full bg-white border border-ice-100 overflow-hidden">
             <div
@@ -308,7 +308,7 @@
               <h3 class="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2">
                 <span>🎟️</span> 必搶預約清單
               </h3>
-              <span id="booking-count-badge" class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-amberwarm-100 text-amber-800">0 / 6</span>
+              <span id="booking-count-badge" class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-amberwarm-100 text-amber-800">0 / 7</span>
             </div>
             <div id="booking-list" class="space-y-2.5"></div>
           </div>
@@ -319,7 +319,7 @@
               <h3 class="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2">
                 <span>🎒</span> 親子行前必備準備
               </h3>
-              <span id="packing-count-badge" class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-ice-100 text-ice-800">0 / 6</span>
+              <span id="packing-count-badge" class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-ice-100 text-ice-800">0 / 7</span>
             </div>
             <div id="packing-list" class="space-y-2.5"></div>
           </div>
@@ -443,36 +443,24 @@
         </div>
 
         <!-- 預算明細卡片列表 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <!-- 1. 機場來回交通 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- 1. 機場與市區交通 -->
           <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 flex flex-col justify-between gap-2">
             <div class="flex items-start justify-between gap-3">
-              <div class="text-sm font-extrabold text-slate-800">✈️ 機場來回交通（Day 1 + Day 8）</div>
-              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 shrink-0">去回程</span>
+              <div class="text-sm font-extrabold text-slate-800">🚃 機場與市區交通（8 天）</div>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 shrink-0">Suica＋機場</span>
             </div>
-            <div class="text-xl font-extrabold text-ice-800">NT$1,560 ~ NT$3,200</div>
+            <div class="text-xl font-extrabold text-ice-800">NT$3,110 ~ NT$4,750</div>
             <p class="text-xs text-slate-500 leading-relaxed">
-              依選擇京成 Access 特急（單程約 NT$780）或 Skyliner 轉乘（單程約 NT$1,600）而定。
+              省略錦糸町繞路（Day 5 交通約 NT$400）及 Day 7 淺草近距離移動（約 NT$200），含成田機場來回及市區全刷 Suica 預估。
             </p>
           </div>
 
-          <!-- 2. 市區電車交通 -->
-          <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 flex flex-col justify-between gap-2">
-            <div class="flex items-start justify-between gap-3">
-              <div class="text-sm font-extrabold text-slate-800">🚃 市區電車交通（Day 2, 3, 5, 6, 7 刷 Suica）</div>
-              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 shrink-0">Suica</span>
-            </div>
-            <div class="text-xl font-extrabold text-ice-800">約 NT$1,800</div>
-            <p class="text-xs text-slate-500 leading-relaxed">
-              Day 2（NT$250）＋ Day 3（NT$300）＋ Day 5（NT$450）＋ Day 6（NT$400）＋ Day 7（NT$400）。
-            </p>
-          </div>
-
-          <!-- 3. Day 4 湯澤中里玩雪一日遊 -->
+          <!-- 2. Day 4 湯澤中里玩雪一日全包 -->
           <div class="rounded-2xl bg-ice-50/80 border border-ice-200 p-4 flex flex-col justify-between gap-2">
             <div class="flex items-start justify-between gap-3">
-              <div class="text-sm font-extrabold text-ice-950">⛄ Day 4 湯澤中里玩雪一日遊</div>
-              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-ice-600 text-white shrink-0">雪國亮點</span>
+              <div class="text-sm font-extrabold text-ice-950">⛄ 湯澤中里玩雪一日全包</div>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-ice-600 text-white shrink-0">Day 4 重點</span>
             </div>
             <div class="text-xl font-extrabold text-ice-900">NT$11,000 ~ NT$15,000</div>
             <p class="text-xs text-ice-800/90 leading-relaxed">
@@ -480,15 +468,15 @@
             </p>
           </div>
 
-          <!-- 4. 核心景點門票 -->
+          <!-- 3. 核心景點門票 -->
           <div class="rounded-2xl bg-amberwarm-50/80 border border-amberwarm-200 p-4 flex flex-col justify-between gap-2">
             <div class="flex items-start justify-between gap-3">
-              <div class="text-sm font-extrabold text-amber-950">🎟️ 核心景點門票（4 大景點）</div>
+              <div class="text-sm font-extrabold text-amber-950">🎟️ 核心固定門票（2 大景點）</div>
               <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-amberwarm-500 text-white shrink-0">門票合計</span>
             </div>
-            <div class="text-xl font-extrabold text-amber-950">NT$6,810 ~ NT$7,410</div>
+            <div class="text-xl font-extrabold text-amber-950">NT$4,860 ~ NT$5,260</div>
             <p class="text-xs text-amber-900/90 leading-relaxed">
-              科博館 NT$260（小學生免費）＋ SHIBUYA SKY NT$1,600~1,800 ＋ 哈利波特影城 NT$4,600~5,000 ＋ 日本科學未來館 NT$350。
+              含上野科博館 NT$260（小學生免費）＋ 哈利波特影城 NT$4,600 ~ NT$5,000。
             </p>
           </div>
         </div>
@@ -497,9 +485,9 @@
         <div class="rounded-2xl bg-gradient-to-r from-ice-900 via-ice-800 to-sky-700 text-white p-5 sm:p-6 shadow-lg shadow-ice-900/15 space-y-3">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <div class="text-xs sm:text-sm font-bold text-ice-200">合計預估總額（2 大 2 小）</div>
+              <div class="text-xs sm:text-sm font-bold text-ice-200">預估總計（2 大 2 小）</div>
               <div class="text-2xl sm:text-3xl font-extrabold tracking-tight text-amberwarm-200 mt-0.5">
-                約 NT$21,170 ~ NT$27,410
+                約 NT$18,970 ~ NT$25,010
               </div>
             </div>
             <div class="inline-flex items-center gap-1.5 self-start sm:self-center px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-bold text-ice-50">
@@ -507,7 +495,7 @@
             </div>
           </div>
           <p class="text-xs text-ice-100/90 leading-relaxed pt-2 border-t border-white/15">
-            ※ 備註說明：以上為 2 大 2 小交通與核心門票／玩雪預估，不含機票、住宿、一般餐飲（含 THE GUEST CAFE、mipig cafe）與購物伴手禮。
+            ※ 備註說明：以上預估總計不含機票住宿、個人購物、一般餐飲以及 Day 7 迷你豬與雙手作預約體驗費用（依 Klook／官網預訂方案計費）。
           </p>
         </div>
       </div>
@@ -573,9 +561,10 @@
         { id: 'b1', icon: '✈️', title: '高雄-東京航班', desc: '48 小時前線上劃位' },
         { id: 'b2', icon: '🏰', title: '哈利波特影城', desc: '開賣即秒殺，建議提早 2–3 個月預訂（排定 1/23 週六）' },
         { id: 'b3', icon: '🚅', title: '上越新幹線（往越後湯澤）', desc: '乘車日 30 天前 10:00（日本時間）開放劃位，可搶早鳥票' },
-        { id: 'b4', icon: '🏙️', title: 'SHIBUYA SKY', desc: '官網提前 2 週開賣，日落時段秒殺（排定 1/20 週三）' },
-        { id: 'b5', icon: '🐷', title: '池袋 mipig cafe 迷你豬', desc: '全預約制，建議提早 1 個月預訂' },
-        { id: 'b6', icon: '🍽️', title: 'THE GUEST CAFE', desc: '全預約制，依官方公告通常提早 1 個月預訂' },
+        { id: 'b4', icon: '🍽️', title: 'THE GUEST CAFE', desc: '全預約制，依官方公告通常提早 1 個月預訂（排定 1/22 週五）' },
+        { id: 'b5', icon: '🐷', title: 'mipig cafe 淺草店', desc: '全預約制，建議提早 1 個月官網預訂（排定 1/24 週日 10:00，全員須穿襪子）' },
+        { id: 'b6', icon: '🥢', title: '淺草日式筷子製作工作坊', desc: 'Klook 預訂時務必點選「淺草店」方案（排定 1/24 週日 11:30，遲到 15 分鐘恕不入場）' },
+        { id: 'b7', icon: '💍', title: 'ENNE RING 淺草硬幣戒指手作', desc: 'Klook 預約時段（排定 1/24 週日 15:00，現場加購僅收信用卡）' },
       ],
       packing: [
         { id: 'p1', icon: '🧤', title: '小孩保暖衣物＆防水手套', desc: '玩雪必備，洋蔥式穿法（手套現場只賣不租，台灣先買）' },
@@ -584,6 +573,7 @@
         { id: 'p4', icon: '💳', title: '交通卡（Suica）', desc: '實體卡或 iPhone Apple Pay 綁定（小學生可辦兒童記名西瓜卡享半價）' },
         { id: 'p5', icon: '💊', title: '常備藥物', desc: '退燒藥、腸胃藥、OK繃' },
         { id: 'p6', icon: '🔋', title: '隨身物品', desc: '大容量行動電源、兒童安撫零食' },
+        { id: 'p7', icon: '🛍️', title: '折疊購物袋＆免稅優惠券截圖', desc: 'Day 5 Bic Camera 池袋本店一站式退稅採買用（護照隨身攜帶）' },
       ],
     };
 
@@ -637,18 +627,19 @@
         day: 3,
         shortDate: '1/20',
         date: '1/20 週三',
-        title: '澀谷次文化（避開週六人潮）：任天堂與寶可夢中心',
-        emoji: '🎮',
+        title: '澀谷次文化＆迷宮尋寶：任天堂、寶可夢與 Hands 澀谷店',
+        emoji: '🧩',
         isHighlight: false,
         description:
-          '安排平日週三前往澀谷 PARCO 6 樓，避開週末整理券排隊人潮，朝聖 Nintendo TOKYO 購買皮克敏周邊，同樓層順逛寶可夢中心。下午登上 SHIBUYA SKY 俯瞰東京十字路口與夕陽。',
+          '平日週三前往澀谷 PARCO 6 樓，避開週末整理券人潮，朝聖 Nintendo TOKYO 購買皮克敏周邊，同樓層順逛寶可夢中心與角色商店。午後步行至隔壁的旗艦級創意雜貨大本營「<strong>Hands 澀谷店</strong>」，體驗獨特的錯層式迷宮結構，帶孩子在益智機關玩具、科學實驗套件與怪奇文具區挖寶尋寶；順道前往澀谷站前看<strong>忠犬八公像</strong>（呼應 Day 2 科博館標本）與感受世界最忙十字路口氛圍，傍晚提早回墨舟荘休息，為隔天早起玩雪保留體力。',
         subBlocks: [],
-        budgetLines: ['交通約 NT$300｜SHIBUYA SKY 門票（2 大 2 小）約 NT$1,600 ~ NT$1,800'],
+        budgetLines: ['交通約 NT$300'],
         links: [
           { type: 'map', label: '導航：澀谷 PARCO', url: 'https://www.google.com/maps/search/?api=1&query=%E6%BE%80%E8%B0%B7+PARCO' },
           { type: 'web', label: '任天堂官方直營店', url: 'https://www.nintendo.co.jp/officialstore/' },
-          { type: 'map', label: '導航：SHIBUYA SKY', url: 'https://www.google.com/maps/search/?api=1&query=SHIBUYA+SKY' },
-          { type: 'web', label: 'SHIBUYA SKY Klook 門票', url: 'https://www.klook.com/zh-TW/activity/30602-shibuya-sky-tokyo/' },
+          { type: 'map', label: '導航：Hands 澀谷店', url: 'https://www.google.com/maps/search/?api=1&query=Hands+%E6%BE%80%E8%B0%B7%E5%BA%97' },
+          { type: 'web', label: 'Hands 澀谷店官網', url: 'https://shibuya.hands.net/' },
+          { type: 'map', label: '導航：忠犬八公像', url: 'https://www.google.com/maps/search/?api=1&query=%E5%BF%A0%E7%8A%AC%E5%85%AB%E5%85%AC%E5%83%8F+%E6%BE%80%E8%B0%B7' },
         ],
       },
       {
@@ -693,19 +684,18 @@
         day: 5,
         shortDate: '1/22',
         date: '1/22 週五',
-        title: '池袋萌力全開日 ＋ 錦糸町阿卡將本舖',
-        emoji: '🐷',
+        title: '池袋萌力全開日 ＋ Bic Camera 一站式退稅購物',
+        emoji: '🛍️',
         isHighlight: false,
         description:
-          '上午造訪池袋 Chiikawa Park，中午在 THE GUEST CAFE 享用主題餐點，下午安排療癒的 mipig cafe 迷你豬互動。傍晚天黑變冷時返回墨田區錦糸町，逛室內暖氣充足的「阿卡將本舖（Arcakit 錦糸町 5F）」採買親子用品與享用晚餐。',
+          '上午造訪池袋 Chiikawa Park，中午在 THE GUEST CAFE 享用主題餐點；下午前往鄰近的「<strong>Bic Camera 池袋本店</strong>」（步行約 3 分鐘）一站式採買 3C 家電、Bic Drug 藥妝與日本零食伴手禮並合併辦理退稅（提醒將零食藥妝裝入密封防拆袋，離境前勿拆封）。傍晚直接搭車返回墨田區，在晴空塔／押上或曳舟周邊輕鬆享用晚餐並把戰利品放回墨舟荘休息。',
         subBlocks: [],
-        budgetLines: ['交通約 NT$450｜門票與餐飲依實際消費而定'],
+        budgetLines: ['交通約 NT$400｜門票、餐飲與購物依實際消費而定'],
         links: [
           { type: 'map', label: '導航：池袋 PARCO 吉伊卡哇', url: 'https://www.google.com/maps/search/?api=1&query=%E6%B1%A0%E8%A2%8BPARCO+%E5%90%89%E4%BC%8A%E5%8D%A1%E5%93%87' },
           { type: 'web', label: '吉伊卡哇官方資訊', url: 'https://chiikawa-info.jp/' },
-          { type: 'map', label: '導航：mipig cafe 池袋', url: 'https://www.google.com/maps/search/?api=1&query=mipig+cafe+%E6%B1%A0%E8%A2%8B' },
-          { type: 'web', label: 'mipig cafe 官網預約', url: 'https://mipig.cafe/locations/ikebukuro/' },
-          { type: 'map', label: '導航：阿卡將本舖 Arcakit 錦糸町', url: 'https://www.google.com/maps/search/?api=1&query=Akachan+Honpo+Arcakit+Kinshicho' },
+          { type: 'map', label: '導航：Bic Camera 池袋本店', url: 'https://www.google.com/maps/search/?api=1&query=Bic+Camera+%E6%B1%A0%E8%A2%8B%E6%9C%AC%E5%BA%97' },
+          { type: 'web', label: 'Bic Camera 官網／優惠券資訊', url: 'https://www.biccamera.com/bc/main/' },
         ],
       },
       {
@@ -729,18 +719,19 @@
         day: 7,
         shortDate: '1/24',
         date: '1/24 週日',
-        title: '台場一日遊：日本科學未來館',
-        emoji: '🤖',
+        title: '淺草萌寵與雙手作職人體驗日',
+        emoji: '💍',
         isHighlight: false,
         description:
-          '前往腹地廣闊的台場，參觀「日本科學未來館」，欣賞機器人、宇宙與地球科學（Geo-Cosmos）等適合兒童互動的豐富展示，下午漫步台場商圈、看自由女神像與鋼彈立像。',
+          '距離住宿曳舟站僅 2 站（約 5 分鐘），全天安排在淺草區輕鬆漫遊（避開日本科學未來館休館期）。上午預約 10:00「<strong>mipig cafe 淺草店</strong>」與迷你豬互動（須穿襪子），11:30 接著體驗「<strong>淺草日式筷子製作工作坊</strong>」（Klook 方案選淺草店，約 1 小時打造專屬木筷）。中午在淺草享用美食與逛雷門仲見世通讓雙手休息，下午 15:00 進行「<strong>ENNE RING 淺草復古硬幣戒指手作體驗</strong>」（約 1 小時，選各國復古硬幣打造戒指，店內僅收信用卡）。傍晚順路至晴空塔晚餐或早點回墨舟荘整理行李。',
         subBlocks: [],
-        budgetLines: ['交通約 NT$400｜門票約 NT$350'],
+        budgetLines: ['交通約 NT$200｜迷你豬與雙手作體驗依預約方案計費'],
         links: [
-          { type: 'map', label: '導航：日本科學未來館', url: 'https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9C%AC%E7%A7%91%E5%AD%B8%E6%9C%AA%E4%BE%86%E9%A4%A8' },
-          { type: 'web', label: '日本科學未來館官網', url: 'https://www.miraikan.jst.go.jp/zh-tw/' },
-          { type: 'map', label: '導航：台場商圈', url: 'https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%A0%B4' },
-          { type: 'web', label: '台場官方觀光指南', url: 'https://www.gotokyo.org/tc/destinations/southern-tokyo/odaiba/index.html' },
+          { type: 'map', label: '導航：mipig cafe 淺草店', url: 'https://www.google.com/maps/search/?api=1&query=mipig+cafe+%E6%B5%85%E8%8D%89%E5%BA%97' },
+          { type: 'web', label: 'mipig cafe 官網預約', url: 'https://mipig.cafe/locations/asakusa/' },
+          { type: 'klook', label: '淺草日式筷子工作坊 Klook', url: 'https://www.klook.com/zh-TW/activity/173208-tokyo-chopstick-making-workshop-with-artisan/?spm=Wish.Favorite_Activity_Card_LIST&clickId=3c27bb43a7' },
+          { type: 'klook', label: 'ENNE RING 淺草戒指手作 Klook', url: 'https://www.klook.com/zh-TW/activity/188605-tokyo-ring-making-workshop-in-asakusa/?spm=Wish.Favorite_Activity_Card_LIST&clickId=6e2c854489' },
+          { type: 'map', label: '導航：淺草雷門', url: 'https://www.google.com/maps/search/?api=1&query=%E6%B7%BA%E8%8D%89%E9%9B%B7%E9%96%80' },
         ],
       },
       {
@@ -951,7 +942,7 @@
           `;
 
           const mapLinks = day.links.filter((l) => l.type === 'map');
-          const webLinks = day.links.filter((l) => l.type === 'web');
+          const webLinks = day.links.filter((l) => l.type !== 'map');
 
           const linksHtml = `
             <div class="pt-1 flex flex-wrap gap-2">
