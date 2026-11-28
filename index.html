@@ -357,7 +357,7 @@
             </div>
           </div>
           <div class="rounded-2xl bg-ice-50/70 border border-ice-100 p-4 flex items-start gap-3">
-            <span class="text-2xl shrink-0" aria-hidden="true">👨‍👩‍👧‍👦</span>
+            <span class="text-2xl shrink-0" aria-hidden="true">👨👩👧👦</span>
             <div>
               <div class="text-xs font-bold text-ice-700">旅行成員</div>
               <div class="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">2 大 2 小（7 歲、8 歲）</div>
@@ -492,9 +492,9 @@
               <div class="text-sm font-extrabold text-amber-950">🎟️ 核心景點門票與預約體驗</div>
               <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-amberwarm-500 text-white shrink-0">已校對全項</span>
             </div>
-            <div class="text-xl font-extrabold text-amber-950">約 NT$15,260 ~ NT$17,760</div>
+            <div class="text-xl font-extrabold text-amber-950">約 NT$16,810 ~ NT$18,760</div>
             <p class="text-xs text-amber-900/90 leading-relaxed">
-              Day 2 上野科博館 NT$260（小學生免費）＋ Day 5 池袋 Chiikawa Park NT$2,100~2,200 ＋ Day 6 哈利波特影城 NT$4,600~5,000 ＋ Day 7 淺草三項預約體驗 NT$8,300~10,300。
+              Day 2 上野科博館 NT$260（小學生免費）＋ Day 5 池袋 Chiikawa Park NT$2,100~2,200 ＋ Day 6 哈利波特影城 NT$4,600~5,000 ＋ Day 7 淺草三項預約體驗 NT$9,850~11,300。
             </p>
           </div>
         </div>
@@ -505,7 +505,7 @@
             <div>
               <div class="text-xs sm:text-sm font-bold text-ice-200">8 天核心項目預估總計（2 大 2 小）</div>
               <div class="text-2xl sm:text-3xl font-extrabold tracking-tight text-amberwarm-200 mt-0.5">
-                約 NT$29,570 ~ NT$36,300
+                約 NT$31,120 ~ NT$37,300
               </div>
             </div>
             <div class="inline-flex items-center gap-1.5 self-start sm:self-center px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-bold text-ice-50">
@@ -569,8 +569,8 @@
 
   <script>
     /* =====================================================================
-     * 1. 核心資料：行前清單與 8 天完整行程資料
-     * ===================================================================== */
+- 1. 核心資料：行前清單與 8 天完整行程資料
+- ===================================================================== */
     const STORAGE_KEY_CHECKLIST = 'tokyo_snow_trip_2027_checklist_v1';
     const STORAGE_KEY_SNOW = 'tokyo_snow_trip_2027_snow_enabled_v1';
 
@@ -579,9 +579,9 @@
         { id: 'b8', icon: '🐹', title: '池袋 Chiikawa Park 吉伊卡哇樂園（排定 1/22 週五）', urgentBadge: '🔥 已開賣！', desc: '每月 15 日開放兩個月後門票，全預約制且無現金支付' },
         { id: 'b2', icon: '🏰', title: '東京哈利波特影城（排定 1/23 週六）', urgentBadge: '🔥 已開賣！', desc: '週末熱門場次建議立即鎖定' },
         { id: 'b3', icon: '🚅', title: '上越新幹線（上野 ↔ 越後湯澤，排定 1/21 週四）', desc: '乘車日 30 天前 10:00 日本時間開放劃位，可搶早鳥票' },
-        { id: 'b5', icon: '🐷', title: 'mipig cafe 淺草店（排定 1/24 週日 09:30）', desc: '提前 1 個月官網預約，大人小孩皆須穿襪子' },
-        { id: 'b6', icon: '🥢', title: '淺草日式筷子製作工作坊（排定 1/24 週日 11:30）', desc: 'Klook 方案務必選「淺草店」，遲到逾 15 分鐘無法入場' },
-        { id: 'b7', icon: '💍', title: 'ENNE RING 淺草復古硬幣戒指手作（排定 1/24 週日 15:00）', desc: 'Klook 提前預約，店內僅收信用卡、不收現金' },
+        { id: 'b6', icon: '🧧', title: 'Orinami 淺草護身符（御守）手織體驗（排定 1/24 週日 09:30）', desc: 'Klook 提前預約 09:30 場次，需提前 5 分鐘報到（遲到視為取消），入內脫鞋須穿襪子' },
+        { id: 'b5', icon: '🐷', title: 'mipig cafe 淺草店（排定 1/24 週日 13:00）', desc: '提前 1 個月官網或 Klook 預約 13:00 場次，需提前 10 分鐘（12:50）報到，大人小孩皆須穿襪子' },
+        { id: 'b7', icon: '💍', title: 'ENNE RING 淺草復古硬幣戒指手作（排定 1/24 週日 15:00）', desc: 'Klook 提前預約 15:00 場次，店內僅收信用卡、不收現金' },
         { id: 'b4', icon: '🍽️', title: '池袋 THE GUEST CAFE 主題餐廳（排定 1/22 週五）', desc: '全預約制，依官方公告通常提前 1 個月預訂' },
         { id: 'b1', icon: '✈️', title: '高雄－東京來回航班（去程 1/18、回程 1/25）', desc: '起飛前 48 小時開放線上報到劃位' },
       ],
@@ -744,29 +744,32 @@
         emoji: '💍',
         isHighlight: false,
         description:
-          '全天留在距離住宿僅 2 站（約 5 分鐘車程）的淺草區，留足場次緩衝：',
+          '全天留在距離住宿僅 2 站（約 5 分鐘車程）的淺草區，從東武淺草站出發採「<strong>東北（護身符）→ 中間（迷你豬）→ 西側（戒指）</strong>」單向不折返順路動線，並留足場次緩衝：',
         subBlocks: [
           {
-            label: '⏰ 淺草一日預約緩衝時間軸',
+            label: '⏰ 淺草一日順路緩衝時間軸（護身符 → 豬 → 戒指）',
             tone: 'ice',
             items: [
-              '<strong>09:30 – 10:30｜mipig cafe 淺草店：</strong>預約 09:30 場次，大人小孩皆須穿襪子入場。',
-              '<strong>11:30 – 12:30｜淺草日式筷子製作工作坊：</strong>Klook 方案務必選「淺草店」，體驗約 1 小時，遲到逾 15 分鐘無法入場。',
-              '<strong>12:30 – 14:45｜淺草午餐 ＆ 雷門／仲見世通散步休息。</strong>',
-              '<strong>15:00 – 16:00｜ENNE RING 淺草復古硬幣戒指手作體驗：</strong>體驗約 1 小時，戒圍支援日規 1～23 號，店內僅收信用卡、不收現金，遲到逾 15 分鐘無法入場。',
-              '<strong>16:30 之後｜搭 1 站至押上晴空塔享用晚餐，或回墨舟荘整理行李。</strong>',
+              '<strong>09:30 – 10:30｜Orinami 淺草 護身符（御守）手織體驗：</strong>從東武淺草站步行約 5 分鐘（400 公尺）抵達；預約 09:30 場次（09:25 前報到，遲到視為當日取消）。體驗約 1 小時，3 歲以上可參加，從 24 色祈福紗線挑色手織專屬御守（2 樓樓梯較陡無電梯，入內需脫鞋穿襪子）。',
+              '<strong>10:30 – 12:50｜淺草寺／仲見世通逛街 ＆ 提早吃午餐：</strong>帶著剛織好的御守逛淺草寺與仲見世通，建議約 11:15～11:30 提早用餐避開週日中午排隊尖峰。',
+              '<strong>13:00 – 14:00｜mipig cafe 淺草店（午間嚕豬充電休息）：</strong>距離東武淺草站僅 3 分鐘、位居三點正中間；預約 13:00 場次（12:50 提前 10 分鐘報到），吃飽走累正好進室內吹暖氣坐著和小豬互動休息（大人小孩皆須穿襪子）。',
+              '<strong>15:00 – 16:00｜ENNE RING 淺草復古硬幣戒指手作體驗：</strong>沿新仲見世通往西悠閒步行約 5 分鐘（400 公尺）抵達淺草 Tosei 大樓 8F；體驗約 1 小時，戒圍支援日規 1～23 號，店內僅收信用卡、不收現金，遲到逾 15 分鐘無法入場。',
+              '<strong>16:00 之後｜自由活動：</strong>不特別排行程，視全家體力彈性逛淺草、用餐，或直接步行約 6 分鐘回東武淺草站返墨舟荘整理隔日退稅與行李。',
             ],
           },
         ],
         budgetLines: [
-          '市區交通約 NT$200｜三項預約體驗（4 人基礎方案）約 NT$8,300 ~ NT$10,300（mipig cafe 4 人約 NT$1,500~1,900＋筷子工作坊 4 人約 NT$3,000~3,800＋硬幣戒指 4 人約 NT$3,800~4,600；若戒指僅製作 2 人份對戒可再省約 NT$2,000）',
+          '市區交通約 NT$200｜三項預約體驗（4 人基礎方案）約 NT$9,850 ~ NT$11,300（Orinami 護身符手織 4 人約 NT$4,550~4,800＋mipig cafe 4 人約 NT$1,500~1,900＋硬幣戒指 4 人約 NT$3,800~4,600；若戒指僅製作 2 人份對戒可再省約 NT$2,000）',
         ],
         links: [
+          { type: 'map', label: '導航：Orinami 淺草（織波）', url: 'https://www.google.com/maps/search/?api=1&query=%E6%89%8B%E7%B9%94%E3%82%8A%E4%BD%93%E9%A8%93%E3%81%8A%E3%82%8A%E3%81%AA%E3%81%BF+%E6%B5%85%E8%8D%89%E5%BA%97' },
           { type: 'map', label: '導航：mipig cafe 淺草店', url: 'https://www.google.com/maps/search/?api=1&query=mipig+cafe+%E6%B5%85%E8%8D%89%E5%BA%97' },
+          { type: 'map', label: '導航：ENNE RING 淺草', url: 'https://www.google.com/maps/search/?api=1&query=ENNE+RING+Asakusa+%E6%B5%85%E8%8D%89' },
           { type: 'map', label: '導航：淺草寺雷門', url: 'https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA+%E9%9B%B7%E9%96%80' },
+          { type: 'klook', label: 'Klook Orinami 護身符體驗', url: 'https://www.klook.com/zh-TW/activity/181201-orinami-asakusa-amulet-making-experience/' },
+          { type: 'klook', label: 'Klook mipig cafe 淺草店', url: 'https://www.klook.com/zh-TW/activity/174931-micro-pig-cafe-experience-in-aasakusa/' },
           { type: 'web', label: 'mipig cafe 官網預約', url: 'https://mipig.cafe/locations/asakusa/' },
-          { type: 'klook', label: 'Klook 淺草日式筷子工作坊', url: 'https://www.klook.com/zh-TW/activity/173208-tokyo-chopstick-making-workshop-with-artisan/' },
-          { type: 'klook', label: 'Klook 淺草復古硬幣戒指體驗', url: 'https://www.klook.com/zh-TW/activity/188605-tokyo-ring-making-workshop-in-asakusa/' },
+          { type: 'klook', label: 'Klook ENNE RING 硬幣戒指', url: 'https://www.klook.com/zh-TW/activity/188605-tokyo-ring-making-workshop-in-asakusa/' },
         ],
       },
       {
@@ -796,8 +799,8 @@
     ];
 
     /* =====================================================================
-     * 2. 三大主分頁切換邏輯（預設顯示 itinerary）
-     * ===================================================================== */
+- 2. 三大主分頁切換邏輯（預設顯示 itinerary）
+- ===================================================================== */
     let activeMainTab = 'itinerary';
 
     function switchMainTab(tabKey, shouldScroll = false) {
@@ -847,8 +850,8 @@
     }
 
     /* =====================================================================
-     * 3. 出發倒數天數計算（2027/01/18）
-     * ===================================================================== */
+- 3. 出發倒數天數計算（2027/01/18）
+- ===================================================================== */
     function updateCountdown() {
       const labelEl = document.getElementById('countdown-label');
       const valueEl = document.getElementById('countdown-value');
@@ -880,8 +883,8 @@
     }
 
     /* =====================================================================
-     * 4. 分頁 1：每日行程快速篩選（flex-wrap 全部顯示不截斷）與卡片渲染
-     * ===================================================================== */
+- 4. 分頁 1：每日行程快速篩選（flex-wrap 全部顯示不截斷）與卡片渲染
+- ===================================================================== */
     let activeDayFilter = 'all';
 
     function renderDayFilterBar() {
@@ -1068,8 +1071,8 @@
     }
 
     /* =====================================================================
-     * 5. 分頁 2：互動式行前核對清單（localStorage 自動儲存）
-     * ===================================================================== */
+- 5. 分頁 2：互動式行前核對清單（localStorage 自動儲存）
+- ===================================================================== */
     let checklistState = {};
 
     function loadChecklistState() {
@@ -1163,8 +1166,8 @@
     }
 
     /* =====================================================================
-     * 6. 複製地址與 Toast 提示（使用 execCommand 確保 iFrame 相容）
-     * ===================================================================== */
+- 6. 複製地址與 Toast 提示（使用 execCommand 確保 iFrame 相容）
+- ===================================================================== */
     let toastTimer = null;
 
     function showToast(message) {
@@ -1197,8 +1200,8 @@
     }
 
     /* =====================================================================
-     * 7. 重置確認彈窗互動
-     * ===================================================================== */
+- 7. 重置確認彈窗互動
+- ===================================================================== */
     function setupResetModal() {
       const modal = document.getElementById('reset-modal');
       const openBtn = document.getElementById('reset-checklist-btn');
@@ -1230,8 +1233,8 @@
     }
 
     /* =====================================================================
-     * 8. 可開關的輕柔飄雪背景特效（HTML5 Canvas）
-     * ===================================================================== */
+- 8. 可開關的輕柔飄雪背景特效（HTML5 Canvas）
+- ===================================================================== */
     let snowEnabled = true;
     let snowAnimId = null;
     let snowflakes = [];
@@ -1330,8 +1333,8 @@
     }
 
     /* =====================================================================
-     * 9. 初始化所有模組
-     * ===================================================================== */
+- 9. 初始化所有模組
+- ===================================================================== */
     window.addEventListener('DOMContentLoaded', () => {
       updateCountdown();
       loadChecklistState();
